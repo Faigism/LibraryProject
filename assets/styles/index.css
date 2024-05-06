@@ -1,0 +1,31 @@
+ body {
+     background: #f9f2eb;
+ }
+
+ header{
+    width: 1250px;
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 210px;
+    margin-top: 31px;
+
+    nav{
+        width: 370px;
+        height: 24px;
+        display: flex;
+        gap: 21px;
+    }
+
+    div{
+        display: flex;
+        align-items: center;
+        width: 90px;
+        height: 38px;
+        gap: 8px;
+    }
+ }
+
+ main{
+ }
