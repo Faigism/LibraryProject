@@ -1,0 +1,33 @@
+body{
+background-color: #FFFAF6;
+
+}
+main h1{
+    width: 215px;
+    height: 71px;
+    font-size: 36px;
+    font-weight: 900;
+}
+
+
+
+
+
+footer{
+    width: 100%;
+    height: 276px;
+    background-color: #391F00;
+}
+.footerCol1{
+    width:33.3% ;
+}
+.footerCol1 img{
+    width: 177px;
+    height: 42px;
+}
+.footerCol2{
+    width:33.3% ;
+}
+.footerCol3{
+    width:33.3% ;
+}
