@@ -1,11 +1,9 @@
 .container-2 button {
     background-color: rgb(214, 169, 169);
-
-
+    border: none;
 }
 
 .container-2 {
-    width: 80%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -15,13 +13,18 @@
 }
 
 h2 {
-    width: 250px;
-    height: 40px;
+    width: 474px;
+    height: 10px;
+    top: 275px;
+    left: 25px;
+    
 }
 
 h4 {
-    width: 250px;
-    height: 20px;
+    width: 147px;
+    height: 10px;
+    top: 29px;
+    left: 217px;
 }
 
 
@@ -31,7 +34,13 @@ div .first {
     background-color: rgb(224, 91, 42);
     color: white;
     border: none;
-    border-radius: 2px;
+    border-radius: 3px;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 900;
+    /* line-height: 23.54px; */
+    text-align: left;
+
 
 }
 
@@ -40,9 +49,14 @@ div .second {
     height: 20px;
     background-color: blue;
     color: white;
-    border-radius: 2px;
+    border-radius: 3px;
     border: none;
     margin-top: 50px;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: left;
+        
 }
 
 .second {
@@ -59,16 +73,15 @@ div .second {
 
 input {
     width: 600px;
-    height: 30px;
+    height: 32px;
     top: 884px;
     left: 212px;
     gap: 0px;
     border-radius: 5px 0px 0px 0px;
     opacity: 0px;
-}
-
-form button {
-    height: 40px;
+    background: #FFFFFFCC;
+    box-shadow: 0px 0px 10px 1px #00000026;
+    border: none;
 }
 
 p {
@@ -81,19 +94,21 @@ p {
     font-family: Montserrat;
     font-size: 22px;
     font-weight: 400;
-    line-height: 43.16px;
+    /* line-height: 43.16px; */
     text-align: left;
+    
 
 }
 
 .secondp {
-    width: 600px;
+    width: 400px;
     height: 200px;
-    font-family: Montserrat;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 35.31px;
     text-align: left;
+    margin-bottom: 80px;
+    
 
 }
 
@@ -107,3 +122,33 @@ p {
     opacity: 0px;
 
 }
+.buttons{
+    margin-top: 15px;
+    width: 420px;
+}
+.buttons .formButton{
+    background: #E16A00 ;
+    border-radius: 5px;
+}
+form{
+    display: flex;
+}
+.comments{
+    width: 380px;
+    height: 100px;
+    gap: 0px;
+    border-radius: 5px 0px 0px 0px;
+    opacity: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    margin-top: 40px;
+    padding: 20px
+
+}
+.checked {  
+    color : yellow;  
+    font-size : 20px;  
+}  
+.unchecked {  
+    font-size : 20px;  
+}  
