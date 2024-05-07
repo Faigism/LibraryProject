@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/styles/detail.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../assets/styles/reset.css" />
+    <link rel="stylesheet" href="../assets/styles/navbar.css" />
+  </head>
+  <body>
+    <!-- modal for pc-->
+    <section class="join_us_section" id="joinUsModal">
+      <div class="modal_content">
+        <span class="close_join_us">&times;</span>
+        <div class="modal_inner_div">
+          <p>Join Us</p>
+          <input id="joinUsFullname" type="text" placeholder="Fullname" />
+          <input id="joinUsEmail" type="email" placeholder="E-mail" />
+          <p id="modalErrorMessage">Fill in the fields correctly!</p>
+          <p id="modalSuccessMessage">Successfully!</p>
+          <button id="join">Join</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- modal for responsive -->
+    <section class="modal_for_responsive" id="responsiveModal">
+      <div class="responsive_modal_content">
+        <span class="close" id="closeResponsiveModal">&times;</span>
+        <span class="responsive_modal_ul">
+          <span><a href="../index.html" class="nav_active_li">Home</a></span>
+          <span><a href="./catalog.html">Catalog</a></span>
+          <span><a href="./about.html">About Store</a></span>
+          <span><a href="./contact.html">Contact Us</a></span>
+          <span><a href="./search.html">Search</a></span>
+        </span>
+      </div>
+    </section>
+    <header class="navbar">
+      <div class="logo_div">
+        <img src="../assets/images/booklibrary.png" alt="logo" />
+      </div>
+
+      <div class="list_div">
+        <ul class="nav_items">
+          <span><a href="../index.html" class="nav_active_a">Home</a></span>
+          <span><a href="./catalog.html">Catalog</a></span>
+          <span><a href="./about.html">About Store</a></span>
+          <span><a href="./contact.html">Contact Us</a></span>
+          <span><a href="./search.html">Search</a></span>
+        </ul>
+      </div>
+
+      <div class="join_div">
+        <img
+          id="joinUsIcon"
+          src="../assets/images/contact.png"
+          alt="contact icon"
+        />
+        <button id="joinUsBtn">Join Us</button>
+        <button id="hamburgerMenu">
+          <img src="../assets/images/contact.png" alt="hamburger" />
+        </button>
+      </div>
+    </header>
+    <div class="container-2">
+      <div class="left-side">
+        <div class="text">
+          <div><button class="first">< Back</button></div>
+          <button class="second">2017</button>
+          <h2>Order in Chaos</h2>
+          <h4>2 days ago added</h4>
+          <p class="firstp">Konstantin Koptelov</p>
+          <p class="secondp">
+            His of Kiev can receive an order on the day of its registration.
+            Customers from other cities of Ukraine can receive an order within
+            1-5 days, depending on the location of the settlement and the
+            selected delivery method. Orders over UAH 1000 are delivered free of
+            charge *. You can see the available methods. <br />More details
+          </p>
+        </div>
+        <div class="star">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star unchecked"></span>
+        </div>
+        <div class="buttons">
+          <form action="#">
+            <label for="text"></label>
+            <input type="text" id="text" placeholder="your anonim comment..." />
+            <button class="formButton">
+              <img src="../assets/images/sendicon.svg" alt="" />
+            </button>
+          </form>
+          <div class="comments">
+            <span><b>anonim</b></span>
+            <span> 18:32 today </span>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
+              consectetur! Lorem ipsum dolor sit, amet consectetur adipisicing
+              elit. Dignissimos quod consequuntur illum mollitia ratione ipsa
+              sit tempora minima dicta expedita!
+            </p>
+          </div>
+          <div class="comments">
+            <span><b>anonim</b></span>
+            <span> 2 days ago </span>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
+              consectetur! Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Officiis id odit commodi dolorum quia adipisci ipsa quae
+              eveniet dolorem. Velit!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <img src="../assets/images/book.png" alt="book description" />
+      </div>
+    </div>
+    <footer class="footer">
+      <section class="footer_icons_section"></section>
+      <section class="footer_copywriter_section">
+        <div class="footer_logo_div">
+          <img src="../assets/images/footerlogo.png" alt="logo" />
+        </div>
+        <!-- The section to be edited -->
+        <ul class="footer_nav_items">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./catalog.html">Catalog</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./search.html">Search</a></li>
+        </ul>
+        <!--  -->
+        <div class="footer_items_container">
+          <div class="footer_popular_items">
+            <ul>
+              <span class="footer_items_title">Popular</span>
+              <li>Programming</li>
+              <li>Children's Books</li>
+              <li>Psychology</li>
+              <li>Business</li>
+            </ul>
+          </div>
+
+          <div class="footer_cash_items">
+            <ul>
+              <span class="footer_items_title">Cash</span>
+              <li>Delivery</li>
+              <li>Payment</li>
+              <li>About the Store</li>
+            </ul>
+          </div>
+
+          <div class="footer_help_items">
+            <ul>
+              <span class="footer_items_title">Help</span>
+              <li>Contact Information</li>
+              <li>Shopping Returns</li>
+              <li>Buyer Assistance</li>
+            </ul>
+          </div>
+
+          <div class="footer_contact_div">
+            <p>+994 99 999-99-99</p>
+            <a href="tel:+994501234567">Call Us</a>
+          </div>
+        </div>
+      </section>
+      <div class="copywriter_text">
+        All rights reserved © 2003-2021 LIBRARY TERMS OF USE | Privacy Policy
+      </div>
+    </footer>
+    <script src="../assets/scripts/navbar.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+.container-2 button {
+  background-color: rgb(214, 169, 169);
+  border: none;
+}
+
+.container-2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.body {
+  background-color: #e1d9be;
+}
+
+h2 {
+  width: 474px;
+  height: 10px;
+  top: 275px;
+  left: 25px;
+}
+
+h4 {
+  width: 147px;
+  height: 10px;
+  top: 29px;
+  left: 217px;
+}
+
+div .first {
+  width: 70px;
+  height: 20px;
+  background-color: rgb(224, 91, 42);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 900;
+  /* line-height: 23.54px; */
+  text-align: left;
+}
+
+div .second {
+  width: 50px;
+  height: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  margin-top: 50px;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: left;
+}
+
+.second {
+  width: 69px;
+  height: 23px;
+}
+
+.right-side img {
+  width: 200px;
+  height: 300px;
+}
+
+.left-side,
+.right-side {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+input {
+  width: 600px;
+  height: 32px;
+  top: 884px;
+  left: 212px;
+  gap: 0px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffffcc;
+  box-shadow: 0px 0px 10px 1px #00000026;
+  border: none;
+}
+
+p {
+  font-weight: 400px;
+  font-size: 12px;
+}
+
+.firstp {
+  font-family: Montserrat;
+  font-size: 22px;
+  font-weight: 400;
+  /* line-height: 43.16px; */
+  text-align: left;
+}
+
+.secondp {
+  width: 400px;
+  height: 200px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 35.31px;
+  text-align: left;
+  margin-bottom: 80px;
+}
+
+.comments {
+  width: 600px;
+  height: 150px;
+  top: 997px;
+  left: 212px;
+  gap: 0px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0px;
+}
+.buttons {
+  margin-top: 15px;
+  width: 420px;
+}
+.buttons .formButton {
+  background: #e16a00;
+  border-radius: 5px;
+}
+form {
+  display: flex;
+}
+.comments {
+  width: 380px;
+  height: 100px;
+  gap: 0px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  margin-top: 40px;
+  padding: 20px;
+}
+.checked {
+  color: yellow;
+  font-size: 20px;
+}
+.unchecked {
+  font-size: 20px;
+}
