@@ -12,23 +12,63 @@
 
     <link rel="stylesheet" href="./assets/styles/reset.css" />
     <link rel="stylesheet" href="./assets/styles/index.css" />
+    <link rel="stylesheet" href="./assets/styles/navbar.css" />
     <title>Home Page</title>
   </head>
   <body>
-    <header id="header">
-      <img src="./assets/images/headerIcon.svg" alt="headerIcon" />
+    <!-- modal for pc-->
+    <section class="join_us_section" id="joinUsModal">
+      <div class="modal_content">
+        <span class="close_join_us">&times;</span>
+        <div class="modal_inner_div">
+          <p>Join Us</p>
+          <input id="joinUsFullname" type="text" placeholder="Fullname" />
+          <input id="joinUsEmail" type="email" placeholder="E-mail" />
+          <p id="modalErrorMessage">Fill in the fields correctly!</p>
+          <p id="modalSuccessMessage">Successfully!</p>
+          <button id="join">Join</button>
+        </div>
+      </div>
+    </section>
 
-      <nav>
-        <a href="#"> Home </a>
-        <a href="#"> Catalog </a>
-        <a href="#"> About Store </a>
-        <a href="#"> Contact Us </a>
-        <a href="#"> Search </a>
-      </nav>
+    <!-- modal for responsive -->
+    <section class="modal_for_responsive" id="responsiveModal">
+      <div class="responsive_modal_content">
+        <span class="close" id="closeResponsiveModal">&times;</span>
+        <span class="responsive_modal_ul">
+          <span><a href="" class="nav_active_li">Home</a></span>
+          <span><a href="">Catalog</a></span>
+          <span><a href="">About Store</a></span>
+          <span><a href="">Contact Us</a></span>
+          <span><a href="">Search</a></span>
+        </span>
+      </div>
+    </section>
+    <header class="navbar">
+      <div class="logo_div">
+        <img src="./assets/images/booklibrary.png" alt="logo" />
+      </div>
 
-      <div class="joinBtn">
-        <i class="fa-regular fa-user"></i>
-        <p>Join us</p>
+      <div class="list_div">
+        <ul class="nav_items">
+          <span><a href="./index.html" class="nav_active_a">Home</a></span>
+          <span><a href="./pages/catalog.html">Catalog</a></span>
+          <span><a href="./pages/about.html">About Store</a></span>
+          <span><a href="./pages/contact.html">Contact Us</a></span>
+          <span><a href="./pages/search.html">Search</a></span>
+        </ul>
+      </div>
+
+      <div class="join_div">
+        <img
+          id="joinUsIcon"
+          src="./assets/images/contact.png"
+          alt="contact icon"
+        />
+        <button id="joinUsBtn">Join Us</button>
+        <button id="hamburgerMenu">
+          <img src="./assets/images/contact.png" alt="hamburger" />
+        </button>
       </div>
     </header>
     <main class="container">
@@ -98,7 +138,66 @@
         >
       </div>
     </main>
-    <footer id="footer"></footer>
+    <footer class="footer">
+      <section class="footer_icons_section"></section>
+      <section class="footer_copywriter_section">
+        <div class="footer_logo_div">
+          <img src="./assets/images/footerlogo.png" alt="logo" />
+        </div>
+        <!-- The section to be edited -->
+        <ul class="footer_nav_items">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./catalog.html">Catalog</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./search.html">Search</a></li>
+        </ul>
+        <!--  -->
+        <div class="footer_items_container">
+          <div class="footer_popular_items">
+            <ul>
+              <span class="footer_items_title">Popular</span>
+              <li>Programming</li>
+              <li>Children's Books</li>
+              <li>Psychology</li>
+              <li>Business</li>
+            </ul>
+          </div>
+
+          <div class="footer_cash_items">
+            <ul>
+              <span class="footer_items_title">Cash</span>
+              <li>Delivery</li>
+              <li>Payment</li>
+              <li>About the Store</li>
+            </ul>
+          </div>
+
+          <div class="footer_help_items">
+            <ul>
+              <span class="footer_items_title">Help</span>
+              <li>Contact Information</li>
+              <li>Shopping Returns</li>
+              <li>Buyer Assistance</li>
+            </ul>
+          </div>
+
+          <div class="footer_contact_div">
+            <p>+994 99 999-99-99</p>
+            <a href="tel:+994501234567">Call Us</a>
+          </div>
+        </div>
+      </section>
+      <div class="copywriter_text">
+        All rights reserved © 2003-2021 LIBRARY TERMS OF USE | Privacy Policy
+      </div>
+    </footer>
+    <script src="./assets/scripts/navbar.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/scripts/home.js"></script>
   </body>
 </html>
