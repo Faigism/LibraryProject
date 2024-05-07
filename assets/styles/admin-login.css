@@ -11,22 +11,9 @@ body {
         color: #fff;
         font-size: 50px;
         padding-right: 15px;
-      }
-      .head-text {
-        h2 {
-          color: #fff;
-          text-transform: uppercase;
-          font-weight: bold;
-          font-size: 20px;
-        }
-        .line {
-          margin: 8px 0;
-          width: 200px;
-          border-bottom: 1px solid #fff;
-        }
-        h3 {
-          color: #fff;
-          font-size: 20px;
+        img {
+          width: 280px;
+          height: 85px;
         }
       }
     }

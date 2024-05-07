@@ -17,22 +17,9 @@ body {
           color: #fff;
           font-size: 50px;
           padding-right: 15px;
-        }
-        .head-text {
-          h2 {
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 20px;
-          }
-          .line {
-            margin: 8px 0;
-            width: 200px;
-            border-bottom: 1px solid #fff;
-          }
-          h3 {
-            color: #fff;
-            font-size: 20px;
+          img {
+            width: 282px;
+            height: 105px;
           }
         }
       }
@@ -44,9 +31,17 @@ body {
         font-size: 18px;
         margin-top: 10px;
         font-weight: 300;
+        img {
+          width: 32px;
+          height: 35px;
+        }
         .section-title {
           p {
             cursor: pointer;
+            a {
+              color: #fff;
+              text-decoration: none;
+            }
           }
         }
       }
