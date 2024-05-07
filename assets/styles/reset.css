@@ -1,33 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-li {
+li{
   list-style-type: none;
 }
-a {
+a{
   text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-p {
-  margin: 0;
-}
-
-:root {
-  --mainColorDarkRed: #391f00;
-  --mainColorRed: #720418;
-  --mainColorOrange: #e16a00;
-  --mainColorPurple: #9b51e0;
-  --mainColorText: #241400;
-  --mainBorderColor: #e6e7e9c2;
-  --mainBodyColor: #fffaf5;
-  --fontRoboto: 'Roboto', sans-serif;
-  --fontMons: 'Montserrat', sans-serif;
 }
