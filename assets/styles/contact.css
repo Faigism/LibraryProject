@@ -1,33 +1,58 @@
-body{
-background-color: #FFFAF6;
-
+body {
+  background-color: #fffaf6;
+  width: 100%;
 }
-main h1{
-    width: 215px;
-    height: 71px;
-    font-size: 36px;
-    font-weight: 900;
+main h1 {
+  width: 215px;
+  height: 71px;
+  margin-top: 112px;
+  margin-left: 215px;
+  font-size: 36px;
+  font-weight: 900;
+}
+.inputIn {
+  width: 1256px;
+  height: 100px;
+}
+.inputIn input {
+  width: 610px;
+  height: 60px;
+  border: 1px solid rgb(217, 217, 212);
+  text-indent: 20px;
 }
 
-
-
-
-
-footer{
-    width: 100%;
-    height: 276px;
-    background-color: #391F00;
+.inputIn input:last-child {
+  margin-left: 30px;
 }
-.footerCol1{
-    width:33.3% ;
+
+.inputBottom input {
+  width: 1257px;
+  height: 80px;
+  border: 1px solid rgb(217, 217, 212);
+  text-indent: 20px;
 }
-.footerCol1 img{
-    width: 177px;
-    height: 42px;
+.btn1 {
+  width: 410px;
+  height: 75px;
+  background-color: #e16a00;
+  border-radius: none;
+  border: none;
+  margin: 85px 0 0 531px;
+  color: white;
 }
-.footerCol2{
-    width:33.3% ;
+.btn1:hover {
+  background-color: #c7620a;
 }
-.footerCol3{
-    width:33.3% ;
+.icon {
+  margin-left: 620px;
+  margin-top: 60px;
+}
+.icon h5 {
+  font-weight: 900;
+  font-size: 20px;
+}
+.iconIn i {
+  font-size: 60px;
+  padding-right: 30px;
+  margin-top: 20px;
 }
