@@ -1,0 +1,18 @@
+button {
+    background-color: #dd7a00;
+    height: 50px;
+    width: 25%;
+    font-size: 20px;
+    color: wheat;
+}
+input {
+    height: 40px;
+    width: 24.5%;
+    font-size: 20px;
+}
+
+div {
+    padding-left: 230px;
+    padding-top: 150px;
+    background-color: ;
+}
