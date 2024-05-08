@@ -97,7 +97,6 @@
                 <i class="fa-solid fa-magnifying-glass searchIconForAdd"></i>
               </div>
             </div>
-
             <div id="modalForSearch">
               <div class="modalContent"></div>
             </div>
@@ -124,7 +123,7 @@
               <label>Book Type</label>
               <input type="text" class="bookType" />
             </div>
-            <button type="submit">Add</button>
+            <button class="bookAddDatabaseBtn">Add</button>
           </form>
         </div>
         <div id="aboutId" class="book-form about-book">
@@ -132,17 +131,17 @@
           <form>
             <div class="input">
               <label>Title</label>
-              <input type="text" />
+              <input type="text" class="storeTitle" />
             </div>
             <div class="input">
               <label>Book Image Url</label>
-              <input type="text" />
+              <input type="text" class="storeImgUrl" />
             </div>
             <div class="input">
               <label>Description</label>
-              <input type="text" />
+              <input type="text" class="storeDescription" />
             </div>
-            <button>About info add</button>
+            <button class="storeAboutBtn">About info add</button>
           </form>
         </div>
         <div id="joinusId" class="admin-join">
@@ -191,15 +190,7 @@
                 <th>Author</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Angels</td>
-                <td>Lorem ipsum test...</td>
-                <td>Detective</td>
-                <td>Dan Brown</td>
-              </tr>
-            </tbody>
+            <tbody class="allBooksInformation"></tbody>
           </table>
         </div>
         <div id="contactId" class="contact">
@@ -248,6 +239,6 @@
         </div>
       </div>
     </main>
-    <script src="../assets/scripts/adminpanel.js"></script>
+    <script type="module" src="../assets/scripts/adminpanel.js"></script>
   </body>
 </html>
