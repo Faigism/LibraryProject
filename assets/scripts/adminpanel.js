@@ -20,8 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const allDataLibrary = (await get(ref(database, 'Library'))).val()
-const allDataContact = (await get(ref(database, 'Library/contacts'))).val()
-const allDataInUsers = (await get(ref(database, 'Library/users'))).val()
+
 const searchInput = document.querySelector('.searchInputForAdd')
 const searchIcon = document.querySelector('.searchIconForAdd')
 const modalSelector = document.querySelector('#modalForSearch')
@@ -40,12 +39,13 @@ onValue(ref(database, 'Library/books'), (snap) => {
   writeAllInfo(Object.values(snap.val()))
 })
 
-onValue(ref(database, 'Library/users'), () => {
-  writeJoinUs()
+onValue(ref(database, 'Library/users'), (snap) => {
+  writeJoinUs(snap.val())
 })
 
-onValue(ref(database, 'Library/contacts'), () => {
-  contactUs()
+onValue(ref(database, 'Library/contacts'), (snap) => {
+  console.log(snap.val());
+  contactUs(snap.val())
 })
 
 searchIcon.addEventListener('click', (e) => {
@@ -129,6 +129,7 @@ function openModal(allBooks) {
   })
   modalContext.innerHTML = allBooksForModal
 }
+
 storeAboutBtn.addEventListener('click', () => {
   const storeName = storeTitle.value
   const storeImg = storeImgUrl.value
@@ -140,7 +141,9 @@ storeAboutBtn.addEventListener('click', () => {
 })
 
 writeAllInfo(Object.values(allDataLibrary.books))
+
 function writeAllInfo(allBook) {
+  
   allBooksInformation.innerHTML = allBook
     .map(
       (book, i) => `<tr>
@@ -154,8 +157,8 @@ function writeAllInfo(allBook) {
     .join('')
 }
 
-function writeJoinUs() {
-  joinUsBody.innerHTML = Object.values(allDataInUsers)
+function writeJoinUs(DataInUsers) {
+  joinUsBody.innerHTML = Object.values(DataInUsers)
     .map(
       (user, i) =>
         `<tr>
@@ -167,9 +170,9 @@ function writeJoinUs() {
     .join('')
 }
 
-function contactUs() {
+function contactUs(DataInContact) {
   document.querySelector('.contactUsBody').innerHTML = Object.values(
-    allDataContact
+    DataInContact
   )
     .map(
       (contactInfo, index) =>
