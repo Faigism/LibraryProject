@@ -33,6 +33,15 @@ onValue(messageRef, (snap) => {
   console.log({ data })
 })
 
+// let names = 'Faiq'
+// let info = {
+//   address: 'Baku Xirdalan',
+//   emailAddress: 'faiq@gmail.com',
+//   fullName: 'faiq',
+//   phoneNumber: '+213212132',
+// }
+// set(ref(database, `Library/contacts/${names}`), info)
+
 // const newAdminRef = push(child(messageRef, 'admins'))
 // set(newAdminRef, {
 //   username: 'Faiq',
