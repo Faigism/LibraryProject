@@ -15,3 +15,40 @@
 //     }
 //     // console.log({next, minPerSlide, items});
 // })
+
+
+const carousel = document.querySelector('.carousel');
+const arrowBtns = document.querySelectorAll(".slider-wrapper i");
+const firstCardWidth = carousel.querySelector('.items').offsetWidth;
+
+
+
+
+arrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+    })
+})
+
+let isDragging = false, startX, startScrollLeft;
+
+const dragStart = () => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+    startX = e.pageX;
+    startScrollLeft = carousel.scrollLeft
+}
+
+const dragging = (e) => {
+    if (!isDragging) return;
+    carousel.scrollLeft = e.pageX;
+}
+
+const dragStop = () => {
+    isDragging = false;
+    carousel.classList.remove("dragging");
+}
+
+carousel.addEventListener('mousedown', dragStart);
+carousel.addEventListener('mousemove', dragging);
+carousel.addEventListener('mouseup', dragStop);
