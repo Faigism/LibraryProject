@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/styles/detail.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="../assets/styles/reset.css" />
     <link rel="stylesheet" href="../assets/styles/navbar.css" />
+    <link rel="stylesheet" href="../assets/styles/detail.css" />
   </head>
   <body>
     <!-- modal for pc-->
@@ -68,39 +68,50 @@
         </button>
       </div>
     </header>
-    <div class="container-2">
-      <div class="left-side">
-        <div class="text">
-          <div><button class="first">< Back</button></div>
-          <button class="second">2017</button>
-          <h2>Order in Chaos</h2>
-          <h4>2 days ago added</h4>
-          <p class="firstp">Konstantin Koptelov</p>
-          <p class="secondp">
-            His of Kiev can receive an order on the day of its registration.
-            Customers from other cities of Ukraine can receive an order within
-            1-5 days, depending on the location of the settlement and the
-            selected delivery method. Orders over UAH 1000 are delivered free of
-            charge *. You can see the available methods. <br />More details
-          </p>
+    <div class="section-container">
+
+      <div class="left-right">
+        <div class="left-side">
+          <div class="text">
+            <div><button class="first"> < Back</button></div>
+            <button class="second">2017</button>
+            <h2>Order in Chaos</h2>
+            <h4>2 days ago added</h4>
+            <p class="firstp">Konstantin Koptelov</p>
+            <p class="secondp">
+              His of Kiev can receive an order on the day of its registration.
+              Customers from other cities of Ukraine can receive an order within
+              1-5 days, depending on the location of the settlement and the
+              selected delivery method. Orders over UAH 1000 are delivered free of
+              charge. You can see the available methods.
+            </p>
+            <div class="more">More details</div>
+          </div>
         </div>
-        <div class="star">
+  
+        <div class="right-side">
+          <img src="../assets/images/book.png" alt="book description" />
+        </div>
+      </div>
+
+        <!-- <div class="star">
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star unchecked"></span>
-        </div>
-        <div class="buttons">
+        </div> -->
+        <div class="comment-container">
           <form action="#">
-            <label for="text"></label>
-            <input type="text" id="text" placeholder="your anonim comment..." />
-            <button class="formButton">
-              <img src="../assets/images/sendicon.svg" alt="" />
-            </button>
+            <div class="form-details">
+              <input class="text-input" type="text" id="text" placeholder="your anonim comment..." />
+              <button class="formButton">
+                <img src="../assets/images/sendicon.svg" alt="" />
+              </button>
+            </div>
           </form>
-          <div class="comments">
-            <span><b>anonim</b></span>
+          <div class="comment">
+            <span><b>Anonim</b></span>
             <span> 18:32 today </span>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
@@ -109,21 +120,7 @@
               sit tempora minima dicta expedita!
             </p>
           </div>
-          <div class="comments">
-            <span><b>anonim</b></span>
-            <span> 2 days ago </span>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-              consectetur! Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Officiis id odit commodi dolorum quia adipisci ipsa quae
-              eveniet dolorem. Velit!
-            </p>
-          </div>
         </div>
-      </div>
-      <div class="right-side">
-        <img src="../assets/images/book.png" alt="book description" />
-      </div>
     </div>
     <footer class="footer">
       <section class="footer_icons_section"></section>
