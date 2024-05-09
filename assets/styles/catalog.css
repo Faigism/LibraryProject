@@ -4,10 +4,8 @@ a{
     color: black;
 }
 
-main{
-    /* background-color: red; */
-}
 .container{
+    min-height: 100vh;
     .genres-place{
         margin: 2px;
         h4{
@@ -25,7 +23,7 @@ main{
     .slider{
         display: flex;
         align-items: center;
-        min-height: 100vh;
+        min-height: 50vh;
         padding: 0 35px;
         .slider-wrapper{
             width: 100%;
@@ -59,13 +57,13 @@ main{
                 }
             }
             i{
-                height: 50px;
+                height: 100px;
                 width: 50px;
-                /* background-color: yellowgreen; */
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 40px;
+                cursor: pointer;
             }
         }
     }
