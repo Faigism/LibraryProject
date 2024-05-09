@@ -44,12 +44,11 @@ onValue(ref(database, 'Library/users'), (snap) => {
 })
 
 onValue(ref(database, 'Library/contacts'), (snap) => {
-  console.log(snap.val());
   contactUs(snap.val())
 })
 
 searchIcon.addEventListener('click', (e) => {
-  keyWord = searchInput.value96
+  keyWord = searchInput.value
   getData(keyWord)
 })
 const getData = async function (keyWord) {
@@ -143,15 +142,14 @@ storeAboutBtn.addEventListener('click', () => {
 writeAllInfo(Object.values(allDataLibrary.books))
 
 function writeAllInfo(allBook) {
-  
   allBooksInformation.innerHTML = allBook
     .map(
       (book, i) => `<tr>
                 <td>${i + 1}</td>
-                <td>${book.title.substring(0, 25)}</td>
-                <td>${book.description.substring(0, 25)}</td>
-                <td>${book.bookType.substring(0, 25)}</td>
-                <td>${book.author.substring(0, 25)}</td>
+                <td>${book.title}</td>
+                <td>${book.description.substring(0, 100) + '...'}</td>
+                <td>${book.bookType}</td>
+                <td>${book.author}</td>
               </tr> `
     )
     .join('')

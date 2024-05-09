@@ -393,6 +393,12 @@ body {
   flex-direction: column;
   justify-content: center;
   font-family: var(--fontMons);
+  ul {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 
 .footer_items_title {
