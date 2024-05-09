@@ -1,18 +1,78 @@
-button {
-    background-color: #dd7a00;
-    height: 50px;
-    width: 25%;
-    font-size: 20px;
-    color: wheat;
-}
-input {
-    height: 40px;
-    width: 24.5%;
-    font-size: 20px;
-}
-
-div {
-    padding-left: 230px;
-    padding-top: 150px;
-    background-color: ;
+main {
+  font-family: 'Montserrat';
+  display: flex;
+  height: 725px;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  .searchSection {
+    h2 {
+      font-size: 40px;
+      padding-bottom: 20px;
+    }
+    button {
+      background-color: #dd7a00;
+      height: 50px;
+      width: 350px;
+      font-size: 20px;
+      color: #fff;
+      outline: none;
+      border: none;
+    }
+    input {
+      height: 50px;
+      width: 350px;
+      font-size: 20px;
+      text-indent: 10px;
+      outline: none;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  .searchImage {
+    display: flex;
+    width: 800px;
+    margin-top: 225px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    gap: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    .searchBookImg {
+      img {
+        width: 220px;
+        height: 350px;
+      }
+    }
+    .searchBookRight {
+      width: 457px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .searchBookName {
+        h2 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 47px;
+        }
+      }
+      .searchBookAuthor {
+        p {
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 35px;
+        }
+      }
+      .searchBookDesc {
+        p {
+          line-height: 27px;
+          font-size: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
 }
