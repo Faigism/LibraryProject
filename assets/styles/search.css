@@ -1,11 +1,10 @@
 main {
   font-family: 'Montserrat';
   display: flex;
-  height: 725px;
-  align-items: center;
-  justify-content: center;
   gap: 80px;
   .searchSection {
+    padding-left: 150px;
+    padding-top: 200px;
     h2 {
       font-size: 40px;
       padding-bottom: 20px;
