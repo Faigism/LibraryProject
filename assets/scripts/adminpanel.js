@@ -5,6 +5,7 @@ import {
   ref,
   get,
   set,
+  onValue,
 } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js'
 const firebaseConfig = {
   apiKey: 'AIzaSyB8mt1jGbUSFDmTi3E4UZo5halIrR6t1UQ',
@@ -19,6 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const allDataLibrary = (await get(ref(database, 'Library'))).val()
+
 const searchInput = document.querySelector('.searchInputForAdd')
 const searchIcon = document.querySelector('.searchIconForAdd')
 const modalSelector = document.querySelector('#modalForSearch')
@@ -29,10 +31,25 @@ const storeImgUrl = document.querySelector('.storeImgUrl')
 const storeDescription = document.querySelector('.storeDescription')
 const storeAboutBtn = document.querySelector('.storeAboutBtn')
 const allBooksInformation = document.querySelector('.allBooksInformation')
+const joinUsBody = document.querySelector('.joinUsBody')
 let keyWord
 let bookDataHaveImg
+
+onValue(ref(database, 'Library/books'), (snap) => {
+  writeAllInfo(Object.values(snap.val()))
+})
+
+onValue(ref(database, 'Library/users'), (snap) => {
+  writeJoinUs(snap.val())
+})
+
+onValue(ref(database, 'Library/contacts'), (snap) => {
+  console.log(snap.val());
+  contactUs(snap.val())
+})
+
 searchIcon.addEventListener('click', (e) => {
-  keyWord = searchInput.value
+  keyWord = searchInput.value96
   getData(keyWord)
 })
 const getData = async function (keyWord) {
@@ -52,30 +69,48 @@ const getData = async function (keyWord) {
 modalSelector.addEventListener('click', (e) => {
   if (e.target.closest('.modalLine') != null) {
     let booksId = e.target.closest('.modalLine').id
+
     modalSelector.setAttribute('style', 'display: none;')
+
     const bookInfo = bookDataHaveImg.filter((item) => item.id == booksId)[0]
       .volumeInfo
+
     const title = bookInfo.title
     const author = bookInfo.authors[0]
     const url = bookInfo.imageLinks.smallThumbnail
     const description = bookInfo.description
     const bookType = bookInfo.categories[0]
-    document.querySelector('.bookName').value = title
-    document.querySelector('.authorName').value = author
-    document.querySelector('.bookUrl').value = url
-    document.querySelector('.bookDesc').value = description
-    document.querySelector('.bookType').value = bookType
-    const allBookData = {
-      title,
-      author,
-      url,
-      description,
-      bookType,
-    }
-    bookAddDatabaseBtn.addEventListener('click', (e) => {
-      set(ref(database, `Library/books/${title}`), allBookData)
-    })
+
+    titleSelector.value = title
+    authorSelector.value = author
+    urlSelector.value = url
+    descriptionSelector.value = description
+    typeSelector.value = bookType
+
+    searchInput.value = ''
   }
+})
+const titleSelector = document.querySelector('.bookName')
+const authorSelector = document.querySelector('.authorName')
+const urlSelector = document.querySelector('.bookUrl')
+const descriptionSelector = document.querySelector('.bookDesc')
+const typeSelector = document.querySelector('.bookType')
+
+bookAddDatabaseBtn.addEventListener('click', (e) => {
+  const title = titleSelector.value
+  const bookData = {
+    title: titleSelector.value,
+    author: authorSelector.value,
+    url: urlSelector.value,
+    description: descriptionSelector.value,
+    bookType: typeSelector.value,
+  }
+  set(ref(database, `Library/books/${title}`), bookData)
+  titleSelector.value = ''
+  authorSelector.value = ''
+  urlSelector.value = ''
+  descriptionSelector.value = ''
+  typeSelector.value = ''
 })
 
 function openModal(allBooks) {
@@ -94,24 +129,60 @@ function openModal(allBooks) {
   })
   modalContext.innerHTML = allBooksForModal
 }
+
 storeAboutBtn.addEventListener('click', () => {
   const storeName = storeTitle.value
   const storeImg = storeImgUrl.value
   const description = storeDescription.value
   set(ref(database, `Library/about`), { storeName, storeImg, description })
+  storeTitle.value = ''
+  storeImgUrl.value = ''
+  storeDescription.value = ''
 })
-writeAllInfo()
-function writeAllInfo() {
-  const allBook = Object.values(allDataLibrary.books)
-  let dataes = ''
-  for (let i = 0; i < allBook.length; i++) {
-    dataes += `<tr>
+
+writeAllInfo(Object.values(allDataLibrary.books))
+
+function writeAllInfo(allBook) {
+  
+  allBooksInformation.innerHTML = allBook
+    .map(
+      (book, i) => `<tr>
                 <td>${i + 1}</td>
-                <td>${allBook[i].title.substring(0, 25)}</td>
-                <td>${allBook[i].description.substring(0, 25)}</td>
-                <td>${allBook[i].bookType.substring(0, 25)}</td>
-                <td>${allBook[i].author.substring(0, 25)}</td>
+                <td>${book.title.substring(0, 25)}</td>
+                <td>${book.description.substring(0, 25)}</td>
+                <td>${book.bookType.substring(0, 25)}</td>
+                <td>${book.author.substring(0, 25)}</td>
               </tr> `
-  }
-  allBooksInformation.innerHTML = dataes
+    )
+    .join('')
+}
+
+function writeJoinUs(DataInUsers) {
+  joinUsBody.innerHTML = Object.values(DataInUsers)
+    .map(
+      (user, i) =>
+        `<tr>
+        <td>${i + 1}</td>
+        <td>${user.userName}</td>
+        <td>${user.userEmail}</td>
+        </tr>`
+    )
+    .join('')
+}
+
+function contactUs(DataInContact) {
+  document.querySelector('.contactUsBody').innerHTML = Object.values(
+    DataInContact
+  )
+    .map(
+      (contactInfo, index) =>
+        `<tr>
+      <td>${index + 1}</td>
+      <td>${contactInfo.fullName}</td>
+      <td>${contactInfo.address}</td>
+      <td>${contactInfo.emailAddress}</td>
+      <td>${contactInfo.phoneNumber}</td>
+    </tr>`
+    )
+    .join('')
 }
