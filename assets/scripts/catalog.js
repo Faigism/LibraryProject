@@ -13,8 +13,6 @@ arrowBtns.forEach(btn => {
     })
 })
 
-
-
 let isDragging = false, startX, startScrollLeft;
 
 const dragStart = (e) => {
@@ -38,16 +36,10 @@ const set = setInterval(() => {
     rightBtn.click();
     // console.log(carousel.scrollLeft);
     if (carousel.scrollLeft >= (carousel.scrollWidth - 966)) {
-        console.log("test");
-        // clearInterval(set);
-        carousel.scrollLeft = 0
+        carousel.scrollLeft = 0;
     }
 }, timePeriod);
-
-
 
 carousel.addEventListener('mousedown', dragStart);
 carousel.addEventListener('mousemove', dragging);
 carousel.addEventListener('mouseup', dragStop);
-
-
