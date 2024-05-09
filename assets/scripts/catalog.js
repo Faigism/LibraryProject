@@ -1,9 +1,9 @@
-
 const carousel = document.querySelector('.carousel');
 const arrowBtns = document.querySelectorAll(".slider-wrapper i");
 const firstCardWidth = carousel.querySelector('.items').offsetWidth;
 const rightBtn = document.getElementById('right');
 const timePeriod = 1000;
+
 
 
 
@@ -25,6 +25,7 @@ const dragStart = (e) => {
 const dragging = (e) => {
     if (!isDragging) return;
     carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+    carousel.scrollLeft = e.pageX;
 }
 
 const dragStop = () => {
