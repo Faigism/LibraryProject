@@ -1,5 +1,5 @@
 main {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   display: flex;
   gap: 80px;
   .searchSection {
@@ -31,47 +31,6 @@ main {
       gap: 30px;
     }
   }
-  .searchImage {
-    display: flex;
-    width: 800px;
-    margin-top: 225px;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    gap: 40px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    .searchBookImg {
-      img {
-        width: 220px;
-        height: 350px;
-      }
-    }
-    .searchBookRight {
-      width: 457px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      .searchBookName {
-        h2 {
-          font-size: 24px;
-          font-weight: 700;
-          line-height: 47px;
-        }
-      }
-      .searchBookAuthor {
-        p {
-          font-weight: 400;
-          font-size: 18px;
-          line-height: 35px;
-        }
-      }
-      .searchBookDesc {
-        p {
-          line-height: 27px;
-          font-size: 18px;
-          font-weight: 400;
-        }
-      }
-    }
-  }
 }
+
+
