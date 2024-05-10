@@ -22,7 +22,7 @@ body{
         .genres-place{
             display: flex;
             justify-content: flex-start;
-            width: 100;
+            width: 100%;
             margin: 2px;
             h2{
                 width: 30%;
@@ -49,7 +49,6 @@ body{
                     user-select: none;
                     padding: 2px;
                     a{
-                        width: 1110px;
                         font-size: bolder;
                     }
                 }
@@ -61,11 +60,11 @@ body{
             .carousel{
                 display: grid;
                 grid-auto-flow: column;
-                width: 1272px;
+                /* width: 1272px; */
                 height: 431px;
                 grid-auto-columns: calc((100% / 5) - 12px);
                 gap: 16px;
-                overflow: hidden;
+                /* overflow-x: hidden; */
                 scroll-behavior: smooth;
             }
             i{
