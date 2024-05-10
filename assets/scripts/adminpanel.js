@@ -44,12 +44,11 @@ onValue(ref(database, 'Library/users'), (snap) => {
 })
 
 onValue(ref(database, 'Library/contacts'), (snap) => {
-  console.log(snap.val());
   contactUs(snap.val())
 })
 
 searchIcon.addEventListener('click', (e) => {
-  keyWord = searchInput.value96
+  keyWord = searchInput.value
   getData(keyWord)
 })
 const getData = async function (keyWord) {
@@ -97,6 +96,7 @@ const descriptionSelector = document.querySelector('.bookDesc')
 const typeSelector = document.querySelector('.bookType')
 
 bookAddDatabaseBtn.addEventListener('click', (e) => {
+
   const title = titleSelector.value
   const bookData = {
     title: titleSelector.value,
@@ -104,6 +104,8 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     url: urlSelector.value,
     description: descriptionSelector.value,
     bookType: typeSelector.value,
+    newReleases:checkCheckboxStatus("new-releases"),
+    bestsellers:checkCheckboxStatus("bestsellers")
   }
   set(ref(database, `Library/books/${title}`), bookData)
   titleSelector.value = ''
@@ -112,6 +114,10 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
   descriptionSelector.value = ''
   typeSelector.value = ''
 })
+
+function checkCheckboxStatus(checkboxId) {
+  return document.getElementById(checkboxId).checked;
+}
 
 function openModal(allBooks) {
   modalSelector.setAttribute('style', 'display: block;')
@@ -143,7 +149,7 @@ storeAboutBtn.addEventListener('click', () => {
 writeAllInfo(Object.values(allDataLibrary.books))
 
 function writeAllInfo(allBook) {
-  
+
   allBooksInformation.innerHTML = allBook
     .map(
       (book, i) => `<tr>
