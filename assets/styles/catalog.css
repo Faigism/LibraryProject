@@ -137,7 +137,6 @@ a{
     }
 }
 
-
 .carousel.dragging .items{
     cursor: grab;
     user-select: none;
