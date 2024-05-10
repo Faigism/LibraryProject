@@ -25,12 +25,16 @@ const firebaseConfig = {
   measurementId: 'G-JQ7DXNZY66',
 }
 
-const carousel = document.querySelector('.carousel');
+
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const allbooks = (await get(ref(database, 'Library/books'))).val()
 const dataForFetch = Object.entries(allbooks)
+
+const carousel = document.querySelector('.carousel');
+const bestseller = document.querySelector('.bestseller-items');
+
 const allBookCard = dataForFetch.map(i => {
     // console.log(i);
     return `
@@ -47,10 +51,10 @@ const allBookCard = dataForFetch.map(i => {
         <button class="btn">READ ME</button>
     </li>`
 })
-
 carousel.innerHTML = allBookCard.join('');
 
-const allBestSellerCard = dataForFetch.map (i => {
+
+const allBestsellerCard = dataForFetch.map (i => {
     if (i[1].bestsellers == "true") {
         console.log(i[1].bestsellers);
         return `
@@ -68,6 +72,7 @@ const allBestSellerCard = dataForFetch.map (i => {
         </li>`
     }
 })
+// bestseller.innerHTML = allBestsellerCard.join("");
 
 
 

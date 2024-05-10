@@ -4,6 +4,11 @@ a{
     color: black;
 }
 
+body{
+    background-color: white;
+    /* &::-webkit-scrollbar */
+    /* scrollbar-color: purple; */
+}
 .container{
     min-height: 100vh;
     .slider{
@@ -12,29 +17,28 @@ a{
         align-items: center;
         padding: 196px 164px;
         width: 1272px;
-        height: 431px;
-        top: 196px;
-        left: 164px;
         gap: 0px;
         opacity: 0px;
         .genres-place{
             display: flex;
-            /* justify-content: space-between; */
-            width: 100%;
+            justify-content: flex-start;
+            width: 100;
             margin: 2px;
             h2{
+                width: 30%;
+                display: flex;
+                justify-content: flex-start;
                 letter-spacing: 2px;
                 display: flex;
-                justify-self: left;
-                top: 19px;
-                left: 215px;
                 gap: 0px;
                 opacity: 0px;
             }
             ul.genres{
+                width: 40%;
                 overflow-x: auto;
                 overflow-wrap: 40px;
-                width: 446px;
+                display: flex;
+                justify-content: flex-start;
                 height: Fixed (26px)px;
                 top: 208px;
                 left: 615px;
@@ -92,7 +96,7 @@ a{
     justify-content: center;
     flex-direction: column;
     box-shadow: 0px 4px 15px 0px #00000040;
-
+    z-index: -10;
     .image{
         img{
             width: 134.23px;
