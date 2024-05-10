@@ -1,9 +1,7 @@
 .about {
   margin-top: 150px !important;
-
   img {
     border-radius: 50% !important;
-    width: 300px !important;
     height: 200px !important;
   }
 }
@@ -15,7 +13,11 @@ h1 {
 #lorem {
   font-size: 25px;
 }
-
+.loadingSection {
+  position: absolute;
+  top: 180px;
+  left: 700px;
+}
 #smallcontainer {
   margin-top: 150px;
 }

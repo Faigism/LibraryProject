@@ -32,4 +32,22 @@ p {
   --mainBodyColor: #fffaf5;
   --fontRoboto: 'Roboto', sans-serif;
   --fontMons: 'Montserrat', sans-serif;
+  --grey-400: #94a3b8;
+  --primary-500: #10b981;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--grey-400);
+  border-radius: 50%;
+  border-top-color: var(--primary-500);
+  animation: spinner 0.6s linear infinite;
+  margin: auto;
 }

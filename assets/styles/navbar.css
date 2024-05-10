@@ -185,7 +185,6 @@ body {
   justify-content: space-around !important;
   align-items: center !important;
   padding: 30px 0px !important;
-  border-bottom: 1px solid #f5f5f5 !important;
   position: fixed !important;
   background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(10px) !important;
@@ -394,6 +393,12 @@ body {
   flex-direction: column;
   justify-content: center;
   font-family: var(--fontMons);
+  ul {
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 
 .footer_items_title {
