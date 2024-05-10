@@ -34,6 +34,8 @@ const allBooksInformation = document.querySelector('.allBooksInformation')
 const joinUsBody = document.querySelector('.joinUsBody')
 let keyWord
 let bookDataHaveImg
+let bookId
+
 
 onValue(ref(database, 'Library/books'), (snap) => {
   writeAllInfo(Object.values(snap.val()))
@@ -79,6 +81,8 @@ modalSelector.addEventListener('click', (e) => {
     const url = bookInfo.imageLinks.smallThumbnail
     const description = bookInfo.description
     const bookType = bookInfo.categories[0]
+    bookId = bookDataHaveImg.filter((item) => item.id == booksId)[0].id
+
 
     titleSelector.value = title
     authorSelector.value = author
@@ -104,8 +108,9 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     url: urlSelector.value,
     description: descriptionSelector.value,
     bookType: typeSelector.value,
-    newReleases:checkCheckboxStatus("new-releases"),
-    bestsellers:checkCheckboxStatus("bestsellers")
+    newReleases: checkCheckboxStatus("new-releases"),
+    bestsellers: checkCheckboxStatus("bestsellers"),
+    bookId
   }
   set(ref(database, `Library/books/${title}`), bookData)
   titleSelector.value = ''
