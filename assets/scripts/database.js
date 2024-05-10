@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js'
+
 import {
   getDatabase,
   ref,
@@ -23,8 +23,18 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-// const analytics = getAnalytics(app)
 const database = getDatabase(app)
+const usersRef = set(ref(database, "Library"))
+
+let fullName = "ad"
+let email = "mail"
+let userdata = {
+  fullName,
+  email
+}
+set(ref(database, `Library/users/${fullName}`), userdata)
+
+
 
 const messageRef = ref(database, 'Library')
 
@@ -107,3 +117,6 @@ onValue(messageRef, (snap) => {
 //   .catch(error => {
 //     console.error('Error fetching data:', error);
 //   });
+
+
+
