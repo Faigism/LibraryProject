@@ -41,7 +41,7 @@ const allBookCard = dataForFetch.map(i => {
     <li class="items">
         <div class="image">
             <img
-                src=""
+                src="${i[1].url}"
                 alt=""
                 draggable="false"
             />
@@ -51,12 +51,12 @@ const allBookCard = dataForFetch.map(i => {
         <button class="btn">READ ME</button>
     </li>`
 })
+
 carousel.innerHTML = allBookCard.join('');
 
-
 const allBestsellerCard = dataForFetch.map (i => {
+    console.log(i[1].bestsellers);
     if (i[1].bestsellers == "true") {
-        console.log(i[1].bestsellers);
         return `
         <li class="items">
             <div class="image">
@@ -72,7 +72,7 @@ const allBestsellerCard = dataForFetch.map (i => {
         </li>`
     }
 })
-// bestseller.innerHTML = allBestsellerCard.join("");
+bestseller.innerHTML = allBestsellerCard.join("");
 
 
 
