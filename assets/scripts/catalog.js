@@ -46,7 +46,7 @@ const allBookCard = dataForFetch.map(i => {
                 draggable="false"
             />
         </div>
-        <h3>${i[0]}</h3>
+        <h3>${i[0].substring(0, 16)}</h3>
         <h5>${i[1].author}</h5>
         <button class="btn">READ ME</button>
     </li>`
