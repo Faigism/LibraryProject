@@ -34,6 +34,7 @@ const dataForFetch = Object.entries(allbooks)
 
 const carousel = document.querySelector('.carousel');
 const bestseller = document.querySelector('.bestseller-items');
+// const bestseller = document.querySelector('.');
 
 const allBookCard = dataForFetch.map(i => {
     // console.log(i);
@@ -48,7 +49,7 @@ const allBookCard = dataForFetch.map(i => {
         </div>
         <h3>${i[0].substring(0, 16)}</h3>
         <h5>${i[1].author}</h5>
-        <button class="btn">READ ME</button>
+        <button id = "${i[1].bookId}" class="btn">READ ME</button>
     </li>`
 })
 
@@ -56,29 +57,29 @@ carousel.innerHTML = allBookCard.join('');
 
 const allBestsellerCard = dataForFetch.map (i => {
     console.log(i[1].bestsellers);
-    if (i[1].bestsellers == "true") {
+    if (i[1].bestsellers == true) {
         return `
         <li class="items">
             <div class="image">
                 <img
-                    src=""
+                    src="${i[1].url}"
                     alt=""
                     draggable="false"
                 />
             </div>
-            <h3>${i[0]}</h3>
+            <h3>${i[0].substring(0, 16)}</h3>
             <h5>${i[1].author}</h5>
-            <button class="btn">READ ME</button>
+            <button id = "${i[1].bookId}" class="btn">READ ME</button>
         </li>`
     }
 })
 bestseller.innerHTML = allBestsellerCard.join("");
 
-
-
-
-
 console.log(dataForFetch);
+
+
+
+
 
 
 //          << carousel js codes >>
