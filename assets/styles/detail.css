@@ -1,147 +1,157 @@
-.container-2 button {
-  background-color: rgb(214, 169, 169);
-  border: none;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.container-2 {
-  display: flex;
-  justify-content: space-evenly;
+body {
+  background-color: #fffaf5;
 }
 
-.body {
-  background-color: #e1d9be;
-}
-
-h2 {
-  width: 474px;
-  height: 10px;
-  top: 275px;
-  left: 25px;
-}
-
-h4 {
-  width: 147px;
-  height: 10px;
-  top: 29px;
-  left: 217px;
-}
-
-div .first {
-  width: 70px;
-  height: 20px;
-  background-color: rgb(224, 91, 42);
-  color: white;
-  border: none;
-  border-radius: 3px;
-  font-family: Montserrat;
-  font-size: 15px;
-  font-weight: 900;
-  /* line-height: 23.54px; */
-  text-align: left;
-}
-
-div .second {
-  width: 50px;
-  height: 20px;
-  background-color: blue;
-  color: white;
-  border-radius: 3px;
-  border: none;
-  margin-top: 50px;
-  font-family: Montserrat;
-  font-size: 15px;
-  font-weight: 900;
-  text-align: left;
-}
-
-.second {
-  width: 69px;
-  height: 23px;
-}
-
-.right-side img {
-  width: 200px;
-  height: 300px;
-}
-
-.left-side,
-.right-side {
+.container {
   margin-top: 150px;
+  padding: 0 200px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-input {
-  width: 600px;
-  height: 32px;
-  top: 884px;
-  left: 212px;
-  gap: 0px;
-  border-radius: 5px 0px 0px 0px;
-  opacity: 0px;
-  background: #ffffffcc;
-  box-shadow: 0px 0px 10px 1px #00000026;
-  border: none;
+  align-items: center;
+  justify-content: center;
 }
 
-p {
-  font-weight: 400px;
-  font-size: 12px;
-}
-
-.firstp {
-  font-family: Montserrat;
-  font-size: 22px;
-  font-weight: 400;
-  /* line-height: 43.16px; */
-  text-align: left;
-}
-
-.secondp {
-  width: 400px;
-  height: 200px;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 35.31px;
-  text-align: left;
-  margin-bottom: 80px;
-}
-
-.comments {
-  width: 600px;
-  height: 150px;
-  top: 997px;
-  left: 212px;
-  gap: 0px;
-  border-radius: 5px 0px 0px 0px;
-  opacity: 0px;
-}
-.buttons {
-  margin-top: 15px;
-  width: 420px;
-}
-.buttons .formButton {
-  background: #e16a00;
-  border-radius: 5px;
-}
-form {
+.detailSection {
   display: flex;
+  align-items: center;
+  gap: 150px;
+  .right {
+    z-index: -9;
+  }
+  .backButton {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 29px;
+    background-color: #e16a00;
+    box-shadow: 0px 3px 8px 0px #e16a0030;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 12px;
+    color: #ffffff;
+    padding-left: 14px;
+    border-radius: 4px;
+    margin-bottom: 80px;
+  }
+
+  .bookDate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 69px;
+    height: 23px;
+    background-color: #2f80ed;
+    box-shadow: 0px 3px 8px 0px #2f80ed30;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .bookName {
+    font-size: 35px;
+    font-weight: 700;
+    color: #241400;
+    margin: 10px 0 5px 0;
+  }
+
+  .bookAddDate {
+    font-size: 16px;
+    font-weight: 700;
+    color: #241400;
+  }
+
+  .bookAuthor {
+    font-size: 22px;
+    font-weight: 400;
+    color: #241400;
+    margin: 10px 0;
+  }
+
+  .bookAbout {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 35px;
+    max-width: 686px;
+  }
+
+  .image {
+    position: relative;
+
+    img {
+      max-width: 379px;
+      min-width: 100px;
+    }
+
+    .new {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 94px;
+      height: 28px;
+      background-color: #eb5757;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      border-radius: 4px;
+    }
+  }
 }
-.comments {
-  width: 380px;
-  height: 100px;
-  gap: 0px;
-  border-radius: 5px 0px 0px 0px;
-  opacity: 0px;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px 0px #00000040;
-  margin-top: 40px;
-  padding: 20px;
-}
-.checked {
-  color: yellow;
-  font-size: 20px;
-}
-.unchecked {
-  font-size: 20px;
+
+.commentSection {
+  margin-top: 150px;
+
+  .commentComponents {
+    display: flex;
+    align-items: center;
+    height: 80px;
+
+    .commentInput {
+      height: 60px;
+      width: 686px;
+      font-size: 16px;
+      padding: 10px 20px;
+      box-shadow: 0px 0px 10px 1px #00000026;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .commentButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 60px;
+      min-height: 60px;
+      border: none;
+      border-radius: 4px;
+      background-color: #e16a00;
+      cursor: pointer;
+    }
+  }
+
+  .commentsContainer div {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 746px;
+    padding: 20px;
+    margin: 40px 0;
+    box-shadow: 0px 0px 10px 0px #0000001a;
+    border-radius: 4px;
+    gap: 20px;
+  }
 }

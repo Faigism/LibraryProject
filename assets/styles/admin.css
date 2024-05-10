@@ -1,201 +1,296 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
 body {
   background-color: #fffaf6 !important;
-  header {
-    .header-nav {
-      background-color: #720517;
-      height: 100vh;
-      width: 300px;
-      padding: 60px 20px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      overflow: hidden;
-      .admin-header {
-        display: flex;
-        align-items: center;
-        .head-logo {
-          color: #fff;
-          font-size: 50px;
-          padding-right: 15px;
-          img {
-            width: 282px;
-            height: 105px;
+}
+
+header {
+  .header-nav {
+    background-color: #720517;
+    height: 100vh;
+    width: 300px;
+    padding: 60px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    .admin-header {
+      display: flex;
+      align-items: center;
+
+      .head-logo {
+        color: #fff;
+        font-size: 50px;
+        padding-right: 15px;
+
+        img {
+          width: 282px;
+          height: 105px;
+        }
+      }
+    }
+    .admin-section {
+      display: flex;
+      color: #fff;
+      row-gap: 20px;
+      column-gap: 10px;
+      font-size: 18px;
+      margin-top: 10px;
+      font-weight: 300;
+
+      .section-title {
+        p {
+          cursor: pointer;
+          a {
+            color: #fff;
+            text-decoration: none;
           }
         }
       }
-      .admin-section {
-        display: flex;
-        color: #fff;
-        row-gap: 20px;
-        column-gap: 10px;
-        font-size: 18px;
-        margin-top: 10px;
-        font-weight: 300;
+      .section-logo {
         img {
           width: 32px;
           height: 35px;
         }
-        .section-title {
-          p {
+      }
+    }
+  }
+}
+
+main {
+  margin-top: 70px;
+  .main-section {
+    margin-left: 340px;
+
+    .admin-profile {
+      align-items: baseline;
+      gap: 10px;
+      display: flex;
+      position: absolute;
+      top: 20px;
+      right: 50px;
+      cursor: pointer;
+    }
+
+    .book-form {
+      margin-bottom: 100px;
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .search {
+        margin-bottom: 50px;
+
+        .search-input {
+          display: flex;
+          gap: 12px;
+
+          input {
+            border-radius: 15px;
+            width: 300px;
+            border: 1px solid #bab2b2;
+            text-indent: 20px;
+            padding: 3px;
+            color: #767575;
+            outline: none;
+          }
+
+          div {
+            background-color: #e16a00;
+            padding: 3px 18px;
+            border-radius: 16px;
             cursor: pointer;
-            a {
+
+            i {
               color: #fff;
-              text-decoration: none;
+            }
+          }
+        }
+      }
+
+      .addBookInput,
+      .aboutBookInput {
+        margin: 10px;
+        padding: 20px;
+        width: 90%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+
+        .input {
+          display: flex;
+          flex-direction: column;
+          padding-top: 15px;
+
+          input {
+            box-shadow: 0px 0px 4px 0px #c4bfbf;
+            border: none;
+            border-radius: 5px;
+            text-indent: 12px;
+            outline-color: #ccc9c9;
+            padding: 3px;
+          }
+        }
+
+        button {
+          margin-top: 25px;
+          background-color: #e16a00;
+          border: none;
+          border-radius: 5px;
+          padding: 5px;
+          color: #fff;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: #b15504;
+          }
+        }
+      }
+    }
+
+    .admin-join,
+    .books,
+    .contact {
+      margin-bottom: 100px;
+
+      table {
+        text-align: center;
+        margin-top: 20px;
+
+        thead {
+          tr {
+            background-color: #720517;
+
+            th {
+              color: #fff;
+              padding: 15px 28px;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            border-bottom: 2px solid #dad7d7;
+
+            td {
+              padding: 15px 28px;
             }
           }
         }
       }
     }
+
+    .books,
+    .contact {
+      margin-bottom: 100px;
+
+      table {
+        width: 95%;
+      }
+    }
   }
-  main {
-    margin-top: 70px;
-    .main-section {
-      margin-left: 340px;
-      .admin-profile {
-        align-items: baseline;
-        gap: 10px;
+
+  #modalForSearch {
+    display: none;
+    /* width: 300px; */
+    height: 250px;
+    top: 200px;
+    left: 385px;
+    border-radius: 35px;
+    background-color: #dbdbdb;
+    margin-top: 5px;
+    padding: 10px;
+
+    .modalContent {
+      display: flex;
+      flex-direction: column;
+      width: 95%;
+      height: 100%;
+      gap: 10px;
+      overflow-y: auto;
+
+      .modalLine {
         display: flex;
-        position: absolute;
-        top: 20px;
-        right: 50px;
-        cursor: pointer;
-      }
-      .book-form {
-        margin-bottom: 100px;
-        h2 {
-          margin-bottom: 20px;
-        }
-        h3 {
-          font-size: 20px;
-        }
-        .search {
-          margin-bottom: 50px;
-          .search-input {
-            display: flex;
-            gap: 12px;
-            input {
-              border-radius: 15px;
-              width: 300px;
-              border: 1px solid #bab2b2;
-              text-indent: 20px;
-              padding: 3px;
-              color: #767575;
-              outline: none;
-            }
-            div {
-              background-color: #e16a00;
-              padding: 3px 18px;
-              border-radius: 16px;
-              cursor: pointer;
-              i {
-                color: #fff;
-              }
-            }
+        align-items: center;
+        width: 100%;
+        height: 40%;
+        gap: 10px;
+
+        .imgCont {
+          width: 10%;
+          height: 80%;
+
+          img {
+            width: 100%;
+            height: 100%;
           }
         }
-        form {
-          margin: 10px;
-          padding: 20px;
-          width: 90%;
-          background-color: #fff;
-          display: flex;
-          flex-direction: column;
-          .input {
-            display: flex;
-            flex-direction: column;
-            padding-top: 15px;
-            input {
-              box-shadow: 0px 0px 4px 0px #c4bfbf;
-              border: none;
-              border-radius: 5px;
-              text-indent: 12px;
-              outline-color: #ccc9c9;
-              padding: 3px;
-            }
-          }
-          button {
-            margin-top: 25px;
-            background-color: #e16a00;
-            border: none;
-            border-radius: 5px;
-            padding: 5px;
-            color: #fff;
-            transition: 0.3s;
-            &:hover {
-              background-color: #b15504;
-            }
-          }
+
+        p {
+          width: fit-content;
+          height: auto;
+          margin: 0;
+          color: #000000;
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  header {
+    .header-nav {
+      display: none !important;
+    }
+
+    .header-menu {
+      display: block !important;
+    }
+  }
+
+  main {
+    .main-section {
+      margin-left: 0;
+
       .admin-join,
       .books,
       .contact {
+        width: 100%;
         margin-bottom: 100px;
+        overflow-y: auto;
+
         table {
-          text-align: center;
-          margin-top: 20px;
+          width: 400px;
+
           thead {
             tr {
-              background-color: #720517;
               th {
-                color: #fff;
-                padding: 15px 28px;
+                padding: 0px;
+                font-size: 8px;
               }
             }
           }
+
           tbody {
             tr {
-              border-bottom: 2px solid #dad7d7;
               td {
-                padding: 15px 28px;
-              }
-            }
-          }
-        }
-      }
-      .books,
-      .contact {
-        margin-bottom: 100px;
-        table {
-          width: 95%;
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 576px) {
-    header {
-      .header-nav {
-        display: none !important;
-      }
-      .header-menu {
-        display: block !important;
-      }
-    }
-    main {
-      .main-section {
-        margin-left: 0;
-        .admin-join,
-        .books,
-        .contact {
-          width: 100%;
-          margin-bottom: 100px;
-          overflow-y: auto;
-          table {
-            width: 400px;
-            thead {
-              tr {
-                th {
-                  padding: 0px;
-                  font-size: 8px;
-                }
-              }
-            }
-            tbody {
-              tr {
-                td {
-                  padding: 0px;
-                  font-size: 7px;
-                }
+                padding: 0px;
+                font-size: 7px;
               }
             }
           }
