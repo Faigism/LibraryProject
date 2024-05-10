@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js'
+
 import {
   getDatabase,
   ref,
@@ -23,8 +23,18 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-// const analytics = getAnalytics(app)
 const database = getDatabase(app)
+const usersRef = set(ref(database, "Library"))
+
+let fullName = "ad"
+let email = "mail"
+let userdata = {
+  fullName,
+  email
+}
+set(ref(database, `Library/users/${fullName}`), userdata)
+
+
 
 const messageRef = ref(database, 'Library')
 
@@ -32,6 +42,10 @@ onValue(messageRef, (snap) => {
   const data = snap.val()
   console.log({ data })
 })
+
+// setTimeout(() => {
+//   set(ref(database, 'Library/about/storeImg'), 'https://images.adsttc.com/')
+// }, 2500)
 
 // let names = 'Faiq'
 // let info = {
@@ -77,3 +91,32 @@ onValue(messageRef, (snap) => {
 // const usersRef = child(messageRef, 'users')
 // remove(usersRef)
 //update
+
+// messageRef.on('value', (snapshot) => {
+//   const firebaseData = snapshot.val();
+//   console.log({ firebaseData });
+
+// fetch('https://www.googleapis.com/books/v1/volumes?q=qaraqan')
+//   .then(response => response.json())
+//   .then(data => {
+
+//     const bookInfo = data.items[0].volumeInfo;
+//     document.getElementById('aboutContent').innerHTML = `
+//       <h3>${bookInfo.title}</h3>
+//       <p>Author(s): ${bookInfo.authors ? bookInfo.authors.join(', ') : 'Unknown'}</p>
+//       <p>Description: ${bookInfo.description ? bookInfo.description : 'No description available'}</p>
+//       <p>Publisher: ${bookInfo.publisher ? bookInfo.publisher : 'Unknown'}</p>
+//       <p>Published Date: ${bookInfo.publishedDate ? bookInfo.publishedDate : 'Unknown'}</p>
+//       <h3>Bookstore Info from Firebase</h3>`;
+//     //   <p>Store Name: ${firebaseData.storeName}</p>
+//     //   <p>Founder: ${firebaseData.founder}</p>
+//     //   <p>Founding Year: ${firebaseData.foundingYear}</p>
+
+//     // `;
+//   })
+//   .catch(error => {
+//     console.error('Error fetching data:', error);
+//   });
+
+
+

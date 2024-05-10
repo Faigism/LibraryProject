@@ -1,4 +1,6 @@
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
+
 import {
   getDatabase,
   ref,
@@ -18,48 +20,37 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
+const modalInputsSelector = document.querySelectorAll(".modal_inner_div input")
 
-const sendButton = document.querySelector('.btn1')
-const emailInputSelector = document.querySelector(".email")
+const usernameJoin = document.getElementById("joinUsFullname")
+const emailJoin = document.getElementById("joinUsEmail")
 
-const fullName = document.querySelector('.fullName')
-const emailAddress = document.querySelector('.email')
-const address = document.querySelector('.address')
-const phoneNumber = document.querySelector('.phone')
-const note = document.querySelector('.note')
+document.getElementById("join").addEventListener("click", function () {
+  var fullName = usernameJoin.value;
+  var email = emailJoin.value;
 
+  if (checkInputs(modalInputsSelector)) {
+    if (isValidEmail(email)) {
 
-sendButton.addEventListener('click', function () {
-  const name = fullName.value
-  if (checkInputs(document.querySelectorAll(".checkinput"))) {
-
-    if (!isValidEmail(emailInputSelector.value)) {
-      
-      emailInputSelector.setAttribute("style", "border: 3px solid red;")
-
-      setTimeout(() => {
-        emailInputSelector.removeAttribute("style", "border: 3px solid red;")
-      }, 1000);
+      const userdata = {
+        fullName,
+        email
+      }
+      set(ref(database, `Library/users/${fullName}`), userdata)
+      usernameJoin.value = ''
+      emailJoin.value = ''
 
     } else {
+      emailJoin.setAttribute("style", "border: 3px solid red;")
 
-      let info = {
-        address: address.value,
-        emailAddress: emailAddress.value,
-        fullName: fullName.value,
-        phoneNumber: phoneNumber.value,
-        note: note.value,
-      }
-      
-      set(ref(database, `Library/contacts/${name}`), info)
-      address.value = ''
-      emailAddress.value = ''
-      fullName.value = ''
-      phoneNumber.value = ''
-      note.value = ''
+      setTimeout(() => {
+        emailJoin.removeAttribute("style", "border: 3px solid red;")
+      }, 1000);
+
     }
   }
-})
+
+});
 
 
 

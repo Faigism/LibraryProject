@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
 body {
   background-color: #fffaf6 !important;
 }
@@ -112,7 +124,8 @@ main {
         }
       }
 
-      form {
+      .addBookInput,
+      .aboutBookInput {
         margin: 10px;
         padding: 20px;
         width: 90%;
@@ -195,12 +208,12 @@ main {
 
   #modalForSearch {
     display: none;
-    width: 300px;
-    height: 95px;
+    /* width: 300px; */
+    height: 250px;
     top: 200px;
     left: 385px;
     border-radius: 35px;
-    background-color: #9e9292;
+    background-color: #dbdbdb;
     margin-top: 5px;
     padding: 10px;
 
@@ -233,6 +246,7 @@ main {
           width: fit-content;
           height: auto;
           margin: 0;
+          color: #000000;
         }
       }
     }
