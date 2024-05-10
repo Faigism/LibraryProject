@@ -33,6 +33,22 @@ onValue(messageRef, (snap) => {
   console.log({ data })
 })
 
+// setTimeout(() => {
+//   set(ref(database, 'Library/about/storeImg'), 'https://images.adsttc.com/')
+// }, 2500)
+
+onValue(ref(database, 'Library/about'), (snap) => {
+  const data = snap.val()
+
+  console.log({data})
+
+  const image = document.getElementById('image');
+
+  document.getElementById('title').textContent = data.storeName;
+  document.getElementById('image').src = data.storeImg;
+  document.getElementById('description').textContent = data.description;
+
+});
 // const newAdminRef = push(child(messageRef, 'admins'))
 // set(newAdminRef, {
 //   username: 'Faiq',
@@ -68,3 +84,32 @@ onValue(messageRef, (snap) => {
 // const usersRef = child(messageRef, 'users')
 // remove(usersRef)
 //update
+
+
+  // messageRef.on('value', (snapshot) => {
+  //   const firebaseData = snapshot.val();
+  //   console.log({ firebaseData });
+
+    // fetch('https://www.googleapis.com/books/v1/volumes?q=qaraqan')
+    //   .then(response => response.json())
+    //   .then(data => {
+        
+    //     const bookInfo = data.items[0].volumeInfo; 
+    //     document.getElementById('aboutContent').innerHTML = `
+    //       <h3>${bookInfo.title}</h3>
+    //       <p>Author(s): ${bookInfo.authors ? bookInfo.authors.join(', ') : 'Unknown'}</p>
+    //       <p>Description: ${bookInfo.description ? bookInfo.description : 'No description available'}</p>
+    //       <p>Publisher: ${bookInfo.publisher ? bookInfo.publisher : 'Unknown'}</p>
+    //       <p>Published Date: ${bookInfo.publishedDate ? bookInfo.publishedDate : 'Unknown'}</p>
+    //       <h3>Bookstore Info from Firebase</h3>`;
+    //     //   <p>Store Name: ${firebaseData.storeName}</p>
+    //     //   <p>Founder: ${firebaseData.founder}</p>
+    //     //   <p>Founding Year: ${firebaseData.foundingYear}</p>
+      
+    //     // `;
+    //   })
+    //   .catch(error => {
+    //     console.error('Error fetching data:', error);
+    //   });
+ 
+
