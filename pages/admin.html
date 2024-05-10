@@ -121,15 +121,14 @@
               <label>Book Type</label>
               <input type="text" class="bookType" />
             </div>
+            <div class="checkInputs">
+              <label for="new-releases">New Releases:</label>
+              <input type="checkbox" id="new-releases" name="new-releases" />
+              <label for="bestsellers">Bestsellers:</label>
+              <input type="checkbox" id="bestsellers" name="bestsellers" />
+            </div>
             <button class="bookAddDatabaseBtn">Add</button>
           </div>
-          <div class="checkInputs">
-            <label for="new-releases">New Releases:</label>
-            <input type="checkbox" id="new-releases" name="new-releases">
-            <label for="bestsellers">Bestsellers:</label>
-            <input type="checkbox" id="bestsellers" name="bestsellers">
-          </div>
-          <button class="bookAddDatabaseBtn">Add</button>
         </div>
         <div id="aboutId" class="book-form about-book">
           <h2>About Store</h2>
@@ -195,5 +194,7 @@
       </div>
     </main>
     <script type="module" src="../assets/scripts/adminpanel.js"></script>
+    <script type="module" src="../assets/scripts/joinus.js"></script>
+
   </body>
 </html>
