@@ -96,6 +96,7 @@ const descriptionSelector = document.querySelector('.bookDesc')
 const typeSelector = document.querySelector('.bookType')
 
 bookAddDatabaseBtn.addEventListener('click', (e) => {
+
   const title = titleSelector.value
   const bookData = {
     title: titleSelector.value,
@@ -103,6 +104,8 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     url: urlSelector.value,
     description: descriptionSelector.value,
     bookType: typeSelector.value,
+    newReleases:checkCheckboxStatus("new-releases"),
+    bestsellers:checkCheckboxStatus("bestsellers")
   }
   set(ref(database, `Library/books/${title}`), bookData)
   titleSelector.value = ''
@@ -111,6 +114,10 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
   descriptionSelector.value = ''
   typeSelector.value = ''
 })
+
+function checkCheckboxStatus(checkboxId) {
+  return document.getElementById(checkboxId).checked;
+}
 
 function openModal(allBooks) {
   modalSelector.setAttribute('style', 'display: block;')
