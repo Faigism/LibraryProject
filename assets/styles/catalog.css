@@ -31,6 +31,65 @@ body {
         display: flex;
         gap: 0px;
         opacity: 0px;
+        .genres-place{
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin: 2px;
+            h2{
+                width: 30%;
+                display: flex;
+                justify-content: flex-start;
+                letter-spacing: 2px;
+                display: flex;
+                gap: 0px;
+                opacity: 0px;
+            }
+            ul.genres{
+                width: 40%;
+                overflow-x: auto;
+                overflow-wrap: 40px;
+                display: flex;
+                justify-content: flex-start;
+                height: Fixed (26px)px;
+                top: 208px;
+                left: 615px;
+                gap: 40px;
+                opacity: 0px;
+                li{
+                    cursor: grab;
+                    user-select: none;
+                    padding: 2px;
+                    a{
+                        font-size: bolder;
+                    }
+                }
+            }
+        }
+        .slider-wrapper{
+            display: flex;
+            align-items: center;
+            .carousel{
+                display: grid;
+                grid-auto-flow: column;
+                min-width: 500px;
+                max-width: 1200px;
+                height: 431px;
+                grid-auto-columns: calc((100% / 5) - 12px);
+                gap: 16px;
+                overflow-x: hidden;
+                scroll-behavior: smooth;
+            }
+            i{
+                height: 100px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 40px;
+                cursor: pointer;
+                color: #720418;
+            }
       }
       ul.genres {
         width: 40%;
@@ -158,6 +217,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 200px;
     width: 1272px;
     height: 431px;
     gap: 16px;
@@ -180,4 +240,30 @@ body {
     text-align: left;
     background: #fff;
   }
+}
+.new-releases{
+    margin-top: 200px;
+    .new-items{
+        .items{
+            /* position: relative; */
+            .new{
+                width: 38px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                gap: 0px;
+                opacity: 0px;
+                background-color: red;
+                font-size: 9px;
+                font-weight: 900;
+                line-height: 17.66px;
+                text-align: left;
+                position: absolute;
+                margin-top: -300px;
+                margin-left: -155px;
+                color: white;
+                /* top: 10px; */
+            }
+        }
+    }
 }
