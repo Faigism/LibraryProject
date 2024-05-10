@@ -30,3 +30,11 @@ searchBtnSelector.addEventListener("click", () => {
 
     console.log(data);
 })
+
+
+
+
+
+
+
+
