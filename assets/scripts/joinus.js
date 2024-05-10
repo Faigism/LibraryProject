@@ -1,15 +1,10 @@
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js'
+
 import {
   getDatabase,
   ref,
-  onValue,
-  push,
-  child,
   set,
-  remove,
-  update,
 } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js'
 
 const firebaseConfig = {
@@ -24,43 +19,62 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-// const analytics = getAnalytics(app)
 const database = getDatabase(app)
+const modalInputsSelector = document.querySelectorAll(".modal_inner_div input")
 
-const messageRef = ref(database, 'Library')
+const usernameJoin = document.getElementById("joinUsFullname")
+const emailJoin = document.getElementById("joinUsEmail")
 
-onValue(messageRef, (snap) => {
-  const data = snap.val()
-  console.log({ data })
-})
+document.getElementById("join").addEventListener("click", function () {
+  var fullName = usernameJoin.value;
+  var email = emailJoin.value;
 
+  if (checkInputs(modalInputsSelector)) {
+    if (isValidEmail(email)) {
 
+      const userdata = {
+        fullName,
+        email
+      }
+      set(ref(database, `Library/users/${fullName}`), userdata)
+      usernameJoin.value = ''
+      emailJoin.value = ''
 
+    } else {
+      emailJoin.setAttribute("style", "border: 3px solid red;")
 
-document.getElementById("join").addEventListener("click", function() {
-    var fullName = document.getElementById("joinUsFullname").value;
-    var email = document.getElementById("joinUsEmail").value;
+      setTimeout(() => {
+        emailJoin.removeAttribute("style", "border: 3px solid red;")
+      }, 1000);
 
- 
-    if (fullName.trim() === "" || email.trim() === "") {
-        document.getElementById("modalErrorMessage").style.display = "block";
-        document.getElementById("modalSuccessMessage").style.display = "none";
-        return;
     }
+  }
 
-
-    var userdata = {
-        fullName: fullName,
-        email: email
-    };
-    database.ref('Library/users/' + fullName).set(userdata)
-        .then(function() {
-           
-            document.getElementById("modalErrorMessage").style.display = "none";
-            document.getElementById("modalSuccessMessage").style.display = "block";
-        })
-        .catch(function(error) {
-            
-            console.error("ERROR:", error);
-        });
 });
+
+
+
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+
+function checkInputs(inputs) {
+
+  let result = true
+
+  inputs.forEach(item => {
+
+    if (!item.value) {
+      item.setAttribute("style", "border: 3px solid red;")
+
+      setTimeout(() => {
+        item.removeAttribute("style", "border: 3px solid red;")
+      }, 1000);
+
+      result = false
+    }
+  })
+  return result
+}
