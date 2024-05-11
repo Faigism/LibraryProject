@@ -21,3 +21,6 @@ h1 {
 #smallcontainer {
   margin-top: 150px;
 }
+.container {
+  height: 300px;
+}
