@@ -34,7 +34,7 @@ const dataForFetch = Object.entries(allbooks)
 
 const carousel = document.querySelector('.carousel');
 const bestseller = document.querySelector('.bestseller-items');
-// const bestseller = document.querySelector('.');
+const newReleases = document.querySelector('.new-items');
 
 const allBookCard = dataForFetch.map(i => {
     // console.log(i);
@@ -56,7 +56,6 @@ const allBookCard = dataForFetch.map(i => {
 carousel.innerHTML = allBookCard.join('');
 
 const allBestsellerCard = dataForFetch.map (i => {
-    console.log(i[1].bestsellers);
     if (i[1].bestsellers == true) {
         return `
         <li class="items">
@@ -75,12 +74,37 @@ const allBestsellerCard = dataForFetch.map (i => {
 })
 bestseller.innerHTML = allBestsellerCard.join("");
 
+const arrayOfNew = [];
+dataForFetch.map (i => {
+    if (i[1].newReleases === true) {
+        arrayOfNew.push(i);
+    }
+})
+
+const newReleasesItems = arrayOfNew.slice(0, 5).map(e => {
+    return `
+    <li class="items">
+        <div class="image">
+        <img
+        src="${e[1].url}"
+        alt=""
+        draggable="false"
+        />
+        </div>
+        <h3>${e[0].substring(0, 16)}</h3>
+        <h5>${e[1].author}</h5>
+        <button id = "${e[1].bookId}" class="btn">READ ME</button>
+        <div class="new">NEW</div>
+    </li>`
+})
+newReleases.innerHTML = newReleasesItems.join("");
+
+
+
 console.log(dataForFetch);
 
 
-
-
-
+// ---------------------------------------------------------------
 
 //          << carousel js codes >>
 
