@@ -202,6 +202,7 @@ body {
   cursor: grab;
   user-select: none;
 }
+
 .new-releases,
 .bestseller {
   width: 1272px;
@@ -225,7 +226,7 @@ body {
     scroll-behavior: smooth;
   }
 }
-.new-releases {
+/* .new-releases {
   margin-top: 200px;
   .new {
     width: 47px;
@@ -240,7 +241,7 @@ body {
     text-align: left;
     background: #fff;
   }
-}
+} */
 .new-releases{
     margin-top: 200px;
     .new-items{
@@ -266,4 +267,5 @@ body {
             }
         }
     }
+}
 }
