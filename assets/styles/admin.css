@@ -12,6 +12,38 @@
 
 body {
   background-color: #fffaf6 !important;
+  .modal {
+    height: 200px;
+    p {
+      font-weight: bold;
+      text-align: center;
+      font-size: 24px;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 70px;
+      margin-top: 60px;
+      a {
+        border-radius: 10px;
+        font-weight: bold;
+        color: #f9f4f4;
+        text-decoration: none;
+        padding: 10px 20px;
+      }
+      a:first-child {
+        background-color: red;
+      }
+      a:last-child {
+        background-color: rgb(138, 138, 8);
+      }
+    }
+    .close-modal {
+      top: 5px !important;
+      right: 5px !important;
+    }
+  }
 }
 
 header {
@@ -50,12 +82,9 @@ header {
       font-weight: 300;
 
       .section-title {
-        p {
-          cursor: pointer;
-          a {
-            color: #fff;
-            text-decoration: none;
-          }
+        a {
+          color: #fff;
+          text-decoration: none;
         }
       }
       .section-logo {

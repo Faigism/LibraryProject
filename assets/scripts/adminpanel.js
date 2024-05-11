@@ -19,8 +19,21 @@ const firebaseConfig = {
 }
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
-const allDataLibrary = (await get(ref(database, 'Library'))).val()
 
+const adminName = document.querySelector('.admin-profile p')
+const logout = document.querySelector('.logoutModal')
+const username = localStorage.getItem('username')
+if (!username) {
+  window.location.href = '/admin-login.html'
+} else {
+  adminName.textContent = username
+}
+logout.addEventListener('click', () => {
+  localStorage.removeItem('username')
+  window.location.href = '/admin-login.html'
+})
+
+const allDataLibrary = (await get(ref(database, 'Library'))).val()
 const searchInput = document.querySelector('.searchInputForAdd')
 const searchIcon = document.querySelector('.searchIconForAdd')
 const modalSelector = document.querySelector('#modalForSearch')
@@ -96,7 +109,6 @@ const descriptionSelector = document.querySelector('.bookDesc')
 const typeSelector = document.querySelector('.bookType')
 
 bookAddDatabaseBtn.addEventListener('click', (e) => {
-
   const title = titleSelector.value
   const bookData = {
     title: titleSelector.value,
@@ -104,8 +116,8 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     url: urlSelector.value,
     description: descriptionSelector.value,
     bookType: typeSelector.value,
-    newReleases:checkCheckboxStatus("new-releases"),
-    bestsellers:checkCheckboxStatus("bestsellers")
+    newReleases: checkCheckboxStatus('new-releases'),
+    bestsellers: checkCheckboxStatus('bestsellers'),
   }
   set(ref(database, `Library/books/${title}`), bookData)
   titleSelector.value = ''
@@ -116,7 +128,7 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
 })
 
 function checkCheckboxStatus(checkboxId) {
-  return document.getElementById(checkboxId).checked;
+  return document.getElementById(checkboxId).checked
 }
 
 function openModal(allBooks) {
