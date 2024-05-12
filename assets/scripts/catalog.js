@@ -222,10 +222,6 @@ const dragStop = () => {
 
 setInterval(() => {
     rightBtn.click();
-    // console.log(carousel.scrollLeft);
-    // if (carousel.scrollLeft >= (carousel.scrollWidth - 966)) {
-    //     carousel.scrollLeft = 0;
-    // }
 }, timePeriod);
 
 carousel.addEventListener('mousedown', dragStart);
