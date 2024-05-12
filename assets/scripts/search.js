@@ -71,7 +71,7 @@ function createSlide(book) {
   textContainer.classList.add('searchBookRight')
 
   const bookTitle = document.createElement('h2')
-  bookTitle.textContent = book.title
+  bookTitle.textContent = book.title.substring(0, 30) + ' ...'
   textContainer.appendChild(bookTitle)
 
   const bookAuthor = document.createElement('p')
@@ -79,7 +79,7 @@ function createSlide(book) {
   textContainer.appendChild(bookAuthor)
 
   const bookDescription = document.createElement('p')
-  bookDescription.textContent = book.description.substring(0, 500) + ' ...'
+  bookDescription.textContent = book.description.substring(0, 400) + ' ...'
   textContainer.appendChild(bookDescription)
 
   slide.appendChild(imageContainer)

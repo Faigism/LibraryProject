@@ -113,12 +113,11 @@ const descriptionSelector = document.querySelector('.bookDesc')
 const typeSelector = document.querySelector('.bookType')
 
 bookAddDatabaseBtn.addEventListener('click', (e) => {
-  let day = String(new Date().getDate()).padStart(2, '0');
-  let month = String(new Date().getMonth() + 1).padStart(2, '0');
-  let year = new Date().getFullYear();
+  let day = String(new Date().getDate()).padStart(2, '0')
+  let month = String(new Date().getMonth() + 1).padStart(2, '0')
+  let year = new Date().getFullYear()
 
-  let formattedDate = `${month}.${day}.${year}`;
-
+  let formattedDate = `${month}.${day}.${year}`
 
   const title = titleSelector.value
   const bookData = {
@@ -128,10 +127,10 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     url: urlSelector.value,
     description: descriptionSelector.value,
     bookType: typeSelector.value,
-    newReleases: checkCheckboxStatus("new-releases"),
-    bestsellers: checkCheckboxStatus("bestsellers"),
+    newReleases: checkCheckboxStatus('new-releases'),
+    bestsellers: checkCheckboxStatus('bestsellers'),
     publishedDate,
-    bookId
+    bookId,
     newReleases: checkCheckboxStatus('new-releases'),
     bestsellers: checkCheckboxStatus('bestsellers'),
   }
@@ -174,7 +173,6 @@ storeAboutBtn.addEventListener('click', () => {
   storeImgUrl.value = ''
   storeDescription.value = ''
 })
-
 
 function writeAllInfo(allBook) {
   allBooksInformation.innerHTML = allBook

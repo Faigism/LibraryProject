@@ -33,6 +33,7 @@ main {
   }
   .searchImage {
     width: 800px;
+    height: 420px;
     margin-top: 140px;
     padding: 30px 60px;
     background-color: #fff;

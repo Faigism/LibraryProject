@@ -14,144 +14,178 @@ body {
 }
 
 .container {
-  margin-top: 150px;
+  margin-top: 120px;
   padding: 0 200px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.detailSection {
-  display: flex;
-  align-items: center;
-  gap: 150px;
-  .right {
-    z-index: -9;
-  }
-  .backButton {
-    display: flex;
-    align-items: center;
-    width: 100px;
-    height: 29px;
-    background-color: #e16a00;
-    box-shadow: 0px 3px 8px 0px #e16a0030;
-    cursor: pointer;
-    font-weight: 900;
-    font-size: 12px;
-    color: #ffffff;
-    padding-left: 14px;
-    border-radius: 4px;
-    margin-bottom: 80px;
-  }
-
-  .bookDate {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 69px;
-    height: 23px;
-    background-color: #2f80ed;
-    box-shadow: 0px 3px 8px 0px #2f80ed30;
-    border-radius: 4px;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 900;
-  }
-
-  .bookName {
-    font-size: 35px;
-    font-weight: 700;
-    color: #241400;
-    margin: 10px 0 5px 0;
-  }
-
-  .bookAddDate {
-    font-size: 16px;
-    font-weight: 700;
-    color: #241400;
-  }
-
-  .bookAuthor {
-    font-size: 22px;
-    font-weight: 400;
-    color: #241400;
-    margin: 10px 0;
-  }
-
-  .bookAbout {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 35px;
-    max-width: 686px;
-  }
-
-  .image {
-    position: relative;
-
-    img {
-      max-width: 379px;
-      min-width: 100px;
-    }
-
-    .new {
-      position: absolute;
-      right: 0;
-      top: 0;
+  .allSections {
+    width: 100%;
+    min-height: 800px;
+    .detailSection {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 94px;
-      height: 28px;
-      background-color: #eb5757;
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 900;
-      border-radius: 4px;
+      gap: 50px;
+      .right {
+        z-index: -9;
+      }
+      .left {
+        .backButton {
+          border: none;
+          margin-bottom: 40px;
+          transition: 0.4s;
+          &:hover {
+            background-color: #ae5100;
+          }
+        }
+      }
+      .backButton {
+        display: flex;
+        align-items: center;
+        width: 100px;
+        height: 29px;
+        background-color: #e16a00;
+        box-shadow: 0px 3px 8px 0px #e16a0030;
+        cursor: pointer;
+        font-weight: 900;
+        font-size: 12px;
+        color: #ffffff;
+        padding-left: 14px;
+        border-radius: 4px;
+        margin-bottom: 80px;
+      }
+
+      .bookDate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 69px;
+        height: 23px;
+        background-color: #2f80ed;
+        box-shadow: 0px 3px 8px 0px #2f80ed30;
+        border-radius: 4px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .bookName {
+        font-size: 35px;
+        font-weight: 700;
+        color: #241400;
+        margin: 10px 0 5px 0;
+      }
+
+      .bookAddDate {
+        font-size: 16px;
+        font-weight: 700;
+        color: #241400;
+      }
+
+      .bookAuthor {
+        font-size: 22px;
+        font-weight: 400;
+        color: #241400;
+        margin: 10px 0;
+      }
+
+      .bookAbout {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 35px;
+        max-width: 686px;
+        background-color: #e8e8e8;
+        padding: 10px 0 10px 10px;
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        p {
+          height: 300px;
+          overflow-y: scroll;
+          color: #757272;
+          &::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: rgb(122, 11, 11);
+            border-radius: 10px;
+          }
+          &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 2px;
+          }
+        }
+      }
+
+      .image {
+        position: relative;
+
+        img {
+          height: 500px;
+        }
+
+        .new {
+          position: absolute;
+          right: 0;
+          top: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 94px;
+          height: 28px;
+          background-color: #eb5757;
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: 900;
+          border-radius: 4px;
+        }
+      }
     }
-  }
-}
 
-.commentSection {
-  margin-top: 150px;
+    .commentSection {
+      margin-top: 150px;
 
-  .commentComponents {
-    display: flex;
-    align-items: center;
-    height: 80px;
+      .commentComponents {
+        display: flex;
+        align-items: center;
+        height: 80px;
 
-    .commentInput {
-      height: 60px;
-      width: 686px;
-      font-size: 16px;
-      padding: 10px 20px;
-      box-shadow: 0px 0px 10px 1px #00000026;
-      border: none;
-      border-radius: 4px;
-      outline: none;
+        .commentInput {
+          height: 60px;
+          width: 686px;
+          font-size: 16px;
+          padding: 10px 20px;
+          box-shadow: 0px 0px 10px 1px #00000026;
+          border: none;
+          border-radius: 4px;
+          outline: none;
+        }
+
+        .commentButton {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 60px;
+          min-height: 60px;
+          border: none;
+          border-radius: 4px;
+          background-color: #e16a00;
+          cursor: pointer;
+        }
+      }
+
+      .commentsContainer div {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        width: 746px;
+        padding: 20px;
+        margin: 40px 0;
+        box-shadow: 0px 0px 10px 0px #0000001a;
+        border-radius: 4px;
+        gap: 20px;
+      }
     }
-
-    .commentButton {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 60px;
-      min-height: 60px;
-      border: none;
-      border-radius: 4px;
-      background-color: #e16a00;
-      cursor: pointer;
-    }
-  }
-
-  .commentsContainer div {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    width: 746px;
-    padding: 20px;
-    margin: 40px 0;
-    box-shadow: 0px 0px 10px 0px #0000001a;
-    border-radius: 4px;
-    gap: 20px;
   }
 }
