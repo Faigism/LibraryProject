@@ -69,12 +69,12 @@ body {
           padding: 0px 15px;
           margin-left: 5px !important;
         }
-        .clicked-cat{
+        .clicked-cat {
           background-color: rgb(199, 197, 197);
           /* height: 33px; */
           padding: 0px 15px;
           border-radius: 5px 5px 0 0;
-          transition: .5s;
+          transition: 0.5s;
         }
       }
     }
@@ -187,27 +187,55 @@ body {
   cursor: grab;
   user-select: none;
 }
-  .new-releases,
-  .bestseller {
-    width: 1272px;
-    height: 631px;
+.new-releases,
+.bestseller {
+  width: 1272px;
+  height: 631px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  gap: 0px;
+  opacity: 0px;
+  .bestseller-items {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 0px;
-    gap: 0px;
-    opacity: 0px;
-    .bestseller-items {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      width: 1272px;
-      height: 431px;
-      gap: 16px;
-      overflow: hidden;
-      scroll-behavior: smooth;
+    margin-top: 20px;
+    width: 1272px;
+    height: 431px;
+    gap: 16px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    .items {
+      .new {
+        width: 38px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 0px;
+        opacity: 0px;
+        background-color: red;
+        font-size: 9px;
+        font-weight: 900;
+        line-height: 17.66px;
+        text-align: left;
+        position: absolute;
+        margin-top: -300px;
+        margin-left: -155px;
+        border-radius: 3px;
+        color: white;
+      }
+    }
+  }
+}
+
+#new-releases {
+  width: 1272px;
+  .new-releases {
+    width: 100%;
+    .new-items {
       .items {
         .new {
           width: 38px;
@@ -224,36 +252,7 @@ body {
           position: absolute;
           margin-top: -300px;
           margin-left: -155px;
-          border-radius: 3px;
           color: white;
-        }
-      }
-    }
-  }
-
-  #new-releases {
-    width: 1272px;
-    .new-releases {
-      width: 100%;
-      .new-items {
-        .items {
-          .new {
-            width: 38px;
-            height: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 0px;
-            opacity: 0px;
-            background-color: red;
-            font-size: 9px;
-            font-weight: 900;
-            line-height: 17.66px;
-            text-align: left;
-            position: absolute;
-            margin-top: -300px;
-            margin-left: -155px;
-            color: white;
-          }
         }
       }
     }
