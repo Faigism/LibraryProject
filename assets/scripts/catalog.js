@@ -33,24 +33,45 @@ const carousel = document.querySelector('.carousel')
 const bestseller = document.querySelector('.bestseller-items')
 const newReleases = document.querySelector('.new-items')
 
-const allBookCard = dataForFetch.map((i) => {
-  return `
-    <li class="items">
-        <div class="image">
-            <img
-                src="${i[1].url}"
-                alt=""
-                draggable="false"
-            />
-        </div>
-        <h3>${i[0].substring(0, 16)}</h3>
-        <h5>${i[1].author}</h5>
-        <button id = "${i[1].bookId}" class="btn carouselBtns">READ ME</button>
-    </li>
-    `
-})
+const carousel = document.querySelector('.carousel');
+const bestseller = document.querySelector('.bestseller-items');
+const newReleases = document.querySelector('.new-items');
 
-carousel.innerHTML = allBookCard.join('')
+
+const allBookCard = dataForFetch.map(i => {
+    if (i[1].newReleases) {
+        return `
+        <li class="items">
+            <div class="image">
+                <img
+                    src="${i[1].url}"
+                    alt=""
+                    draggable="false"
+                />
+            </div>
+            <h3>${i[0].substring(0, 16)}</h3>
+            <h5>${i[1].author.substring(0, 20)}</h5>
+            <button id = "${i[1].bookId}" class="btn">READ ME</button>
+            <div class="new">NEW</div>
+        </li>`
+    }
+    else{
+        return `
+        <li class="items">
+            <div class="image">
+                <img
+                    src="${i[1].url}"
+                    alt=""
+                    draggable="false"
+                />
+            </div>
+            <h3>${i[0].substring(0, 16)}</h3>
+            <h5>${i[1].author.substring(0, 20)}</h5>
+            <button id = "${i[1].bookId}" class="btn">READ ME</button>
+        </li>`
+    }
+})
+carousel.innerHTML = allBookCard.join('');
 
 const allBestsellerCard = dataForFetch.map((i) => {
   if (i[1].bestsellers == true) {
@@ -64,10 +85,8 @@ const allBestsellerCard = dataForFetch.map((i) => {
                 />
             </div>
             <h3>${i[0].substring(0, 16)}</h3>
-            <h5>${i[1].author}</h5>
-            <button id = "${
-              i[1].bookId
-            }" class="btn carouselBtns">READ ME</button>
+            <h5>${i[1].author.substring(0, 20)}</h5>
+            <button id = "${i[1].bookId}" class="btn">READ ME</button>
         </li>`
   }
 })
@@ -91,8 +110,8 @@ const newReleasesItems = arrayOfNew.slice(0, 5).map((e) => {
             />
         </div>
         <h3>${e[0].substring(0, 16)}</h3>
-        <h5>${e[1].author}</h5>
-        <button id = "${e[1].bookId}" class="btn carouselBtns">READ ME</button>
+        <h5>${e[1].author.substring(0, 20)}</h5>
+        <button id = "${e[1].bookId}" class="btn">READ ME</button>
         <div class="new">NEW</div>
     </li>`
 })
@@ -102,92 +121,68 @@ document.querySelector('.all-books').addEventListener('click', () => {
   newReleases.innerHTML = newReleasesItems.join('')
 })
 
-// console.log(dataForFetch);
 
 // ---------------------------------------------------------------
 
 //         << Category js >>
 
-// const categoryClicking = document.querySelectorAll('.category')
-// for (let index = 0; index < categoryClicking.length; index++) {
-//     const element = categoryClicking[index]
-//     console.log(element);
-// }
-// element.addEventListener('click', () => {
-//     console.log("test");
-// })
-
-// for (let index = 0; index < categoryClicking.length; index++) {
-//     const element = categoryClicking[index].textContent;
-//     dataForFetch.forEach(item => {
-//         // console.log(item[1].bookType);
-//         if (item[1].bookType == element) {
-//             console.log(item);
-//         }
-//     })
-// }
-// console.log(dataForFetch);
-
 const ulCategories = document.querySelector('.genres')
 let arrayOfCategories = []
 
-let clickedBefore = false
-ulCategories.addEventListener('click', (e) => {
-  // console.log(e.target.matches("li.category"));
-  if (e.target && e.target.matches('li.category')) {
-    let element = e.target.textContent
-    dataForFetch.map((item) => {
-      if (item[1].bookType == element) {
-        // let pushedArray = arrayOfCategories.push(item)
-        // console.log(pushedArray);
-        // console.log(item);
-        if (arrayOfCategories.includes(item)) {
-          return item
-        } else {
-          arrayOfCategories = []
-          arrayOfCategories.push(item)
+ulCategories.addEventListener("click", (e) => {
+    let clickedBefore = false;
+    e.target.classList.add("clicked-cat");
+    if (e.target && e.target.matches("li.category")) {
+        let element = e.target.textContent;
+        e.target.classList.remove("clicked-cat")
+        dataForFetch.map(item => {
+            if (item[1].bookType == element) {
+                if (arrayOfCategories.includes(item)) {
+                    return item
+                }
+                else{
+                    arrayOfCategories.push(item)
+                    for (let a = 0; a < arrayOfCategories.length-1; a++) {
+                        const itm = arrayOfCategories[a];
+                        if (itm[1].bookType != arrayOfCategories[a + 1][1].bookType){
+                            arrayOfCategories.shift()
+                        }
+                    }
+                    // arrayOfCategories = []
+                    console.log(arrayOfCategories);
+                }
+            }
+        })
+        const arrOfPerCategory = arrayOfCategories.map(item => {
+            return `
+                <li class="items">
+                    <div class="image">
+                        <img
+                            src="${item[1].url}"
+                            alt=""
+                            draggable="false"
+                        />
+                    </div>
+                    <h3>${item[0].substring(0, 16)}</h3>
+                    <h5>${item[1].author.substring(0, 20)}</h5>
+                    <button id = "${item[1].bookId}" class="btn">READ ME</button>
+                </li>`
+        })
+        if (!clickedBefore){
+            carousel.innerHTML = arrOfPerCategory.join("")
         }
-
-        return `
-                    <li class="items">
-                        <div class="image">
-                            <img
-                                src="${item[1].url}"
-                                alt=""
-                                draggable="false"
-                            />
-                        </div>
-                        <h3>${item[0].substring(0, 16)}</h3>
-                        <h5>${item[1].author}</h5>
-                        <button id = "${
-                          item[1].bookId
-                        }" class="btn">READ ME</button>
-                    </li>`
-      }
-    })
-  }
-  const arrOfPerCategory = arrayOfCategories.map((item) => {
-    return `
-            <li class="items">
-                <div class="image">
-                    <img
-                        src="${item[1].url}"
-                        alt=""
-                        draggable="false"
-                    />
-                </div>
-                <h3>${item[0].substring(0, 16)}</h3>
-                <h5>${item[1].author}</h5>
-                <button id = "${item[1].bookId}" class="btn">READ ME</button>
-            </li>`
-  })
-  if (!clickedBefore) {
-    carousel.innerHTML = arrOfPerCategory.join('')
-  }
-  // clickedBefore = !clickedBefore
+        clickedBefore = !clickedBefore
+    }
 })
 
-// console.log(arrayOfCategories);
+//          << I need to add function that when click other category remove clicked-cat class of current category >>
+
+// window.addEventListener('click', function(event){
+//     if (event.target.matches("li.category")){
+//         event.target.classList.remove("clicked-cat")
+//     }
+// })
+
 
 // ---------------------------------------------------------------
 
@@ -227,6 +222,12 @@ const dragStop = () => {
 }
 
 setInterval(() => {
+    rightBtn.click();
+}, timePeriod);
+
+carousel.addEventListener('mousedown', dragStart);
+carousel.addEventListener('mousemove', dragging);
+carousel.addEventListener('mouseup', dragStop);
   rightBtn.click()
   // console.log(carousel.scrollLeft);
   // if (carousel.scrollLeft >= (carousel.scrollWidth - 966)) {
