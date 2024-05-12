@@ -1,8 +1,36 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js'
+
+import {
+    getDatabase,
+    ref,
+    get,
+    set
+} from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js'
+
+const firebaseConfig = {
+    apiKey: 'AIzaSyB8mt1jGbUSFDmTi3E4UZo5halIrR6t1UQ',
+    authDomain: 'books-3aa24.firebaseapp.com',
+    databaseURL: 'https://books-3aa24-default-rtdb.firebaseio.com',
+    projectId: 'books-3aa24',
+    storageBucket: 'books-3aa24.appspot.com',
+    messagingSenderId: '552713213518',
+    appId: '1:552713213518:web:49e0a2784b52897863551f',
+    measurementId: 'G-JQ7DXNZY66',
+}
+
+const app = initializeApp(firebaseConfig)
+const database = getDatabase(app)
+const detailSectionSelector = document.querySelector(".detailSection")
+const detailData=(await get(ref(database, "Library/detailInfo"))).val()
+
+
 const commentInput = document.querySelector('.commentInput');
 const commentButton = document.querySelector('.commentButton');
 const commentsContainer = document.querySelector('.commentsContainer');
 
 const commentsKey = 'savedComments';
+
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -66,3 +94,46 @@ function generateId() {
 //     const updatedComments = savedComments.filter(comment => comment.id !== commentId);
 //     localStorage.setItem(commentsKey, JSON.stringify(updatedComments));
 // }
+
+
+
+
+
+
+function findDiffDate(bookDate) { 
+    let addTime = new Date(bookDate);
+    let addGetTime = addTime.getTime();
+    
+    let today = new Date();
+    let todayGetTime = today.getTime();
+    
+    let diffMilliseconds = todayGetTime - addGetTime;
+    let diffDays = Math.floor(diffMilliseconds / (1000 * 60 * 60 * 24));
+    return diffDays
+}
+
+
+detailSectionSelector.innerHTML=`          
+<div class="left">
+<button class="backButton">< BACK</button>
+<div class="bookDate">${detailData.publishedDate.substring(0,4)}</div>
+<div class="bookName">${detailData.title}</div>
+<div class="bookAddDate">${findDiffDate(detailData.addedTime)} days ago added</div>
+<div class="bookAuthor">${detailData.author}</div>
+<div class="bookAbout">
+  <p>
+   ${detailData.description}
+  </p>
+</div>
+</div>
+
+<div class="right">
+<div class="image">
+  <div class="new">NEW</div>
+  <img src="${detailData.url}" alt />
+</div>
+</div>`
+
+document.querySelector(".backButton").addEventListener("click",()=>{
+    window.location.href="../../pages/catalog.html"
+})
