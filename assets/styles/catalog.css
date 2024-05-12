@@ -49,6 +49,10 @@ body {
         height: Fixed (26px) px;
         gap: 10px;
         padding-left: 0;
+        .allBtn {
+          color: rgb(255, 123, 0);
+          font-weight: bold;
+        }
         &::-webkit-scrollbar {
           width: 5px;
           height: 5px;
@@ -257,4 +261,7 @@ body {
       }
     }
   }
+}
+.loading {
+  top: 400px;
 }

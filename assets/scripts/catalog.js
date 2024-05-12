@@ -27,11 +27,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
+const loading = document.querySelector('.loadingSection')
+loading.classList.add('loading')
 const allbooks = (await get(ref(database, 'Library/books'))).val()
 const dataForFetch = Object.entries(allbooks)
 const carousel = document.querySelector('.carousel')
 const bestseller = document.querySelector('.bestseller-items')
 const newReleases = document.querySelector('.new-items')
+const allBtn = document.querySelector('.allBtn')
 
 const allBookCard = dataForFetch.map((i) => {
   if (i[1].newReleases) {
@@ -125,6 +128,21 @@ document.querySelector('.all-books').addEventListener('click', () => {
 
 //         << Category js >>
 
+allBtn.addEventListener('click', () => {
+  carousel.innerHTML = allBookCard.join('')
+  const buttons = document.querySelectorAll('.carouselBtns')
+  buttons.forEach((button) => {
+    button.addEventListener('click', function () {
+      const bookId = this.id
+      const bookDetails = Object.entries(allbooks).filter(
+        (book) => book[1].bookId === bookId
+      )[0][1]
+      set(ref(database, `Library/detailInfo`), bookDetails)
+      window.location.href = '/pages/detail.html'
+    })
+  })
+})
+
 const ulCategories = document.querySelector('.genres')
 let arrayOfCategories = []
 
@@ -147,7 +165,7 @@ ulCategories.addEventListener('click', (e) => {
             }
           }
           // arrayOfCategories = []
-          console.log(arrayOfCategories)
+          // console.log(arrayOfCategories)
         }
       }
     })
@@ -170,6 +188,17 @@ ulCategories.addEventListener('click', (e) => {
     })
     if (!clickedBefore) {
       carousel.innerHTML = arrOfPerCategory.join('')
+      const buttons = document.querySelectorAll('.carouselBtns')
+      buttons.forEach((button) => {
+        button.addEventListener('click', function () {
+          const bookId = this.id
+          const bookDetails = Object.entries(allbooks).filter(
+            (book) => book[1].bookId === bookId
+          )[0][1]
+          set(ref(database, `Library/detailInfo`), bookDetails)
+          window.location.href = '/pages/detail.html'
+        })
+      })
     }
     clickedBefore = !clickedBefore
   }
@@ -190,7 +219,7 @@ ulCategories.addEventListener('click', (e) => {
 const arrowBtns = document.querySelectorAll('.slider-wrapper i')
 const firstCardWidth = carousel.querySelector('.items').offsetWidth
 const rightBtn = document.getElementById('right')
-const timePeriod = 2000
+const timePeriod = 3000
 
 let isDragging = false,
   startX,
@@ -241,11 +270,9 @@ carousel.addEventListener('mouseup', dragStop)
 // read me buttonlara click eventi
 
 const buttons = document.querySelectorAll('.carouselBtns')
-
 buttons.forEach((button) => {
   button.addEventListener('click', function () {
     const bookId = this.id
-    console.log(bookId)
     const bookDetails = Object.entries(allbooks).filter(
       (book) => book[1].bookId === bookId
     )[0][1]
@@ -253,3 +280,5 @@ buttons.forEach((button) => {
     window.location.href = '/pages/detail.html'
   })
 })
+
+loading.classList.remove('loading')
