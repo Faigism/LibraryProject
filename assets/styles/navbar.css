@@ -189,6 +189,7 @@ body {
   background: rgba(255, 255, 255, 0.2) !important;
   backdrop-filter: blur(10px) !important;
   top: 0;
+  z-index: 9;
 }
 
 .logo_div {

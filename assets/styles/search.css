@@ -33,6 +33,7 @@ main {
   }
   .searchImage {
     width: 800px;
+    height: 420px;
     margin-top: 140px;
     padding: 30px 60px;
     background-color: #fff;
@@ -42,16 +43,28 @@ main {
       display: flex;
       overflow: hidden;
       width: 100%;
-      .searchBookImg img {
-        width: 220px;
-        height: 350px;
-        object-fit: cover;
-        background-color: black;
-        border-radius: 5px;
-      }
-      .searchBookRight {
-        flex-grow: 1;
-        padding-left: 20px;
+      .slide {
+        display: flex;
+        .searchBookImg img {
+          width: 220px;
+          height: 350px;
+          object-fit: cover;
+          background-color: black;
+          border-radius: 5px;
+        }
+        .searchBookRight {
+          flex-grow: 1;
+          padding-left: 20px;
+          p:first-of-type {
+            font-size: 22px;
+            padding-bottom: 10px;
+          }
+          p:last-child {
+            line-height: 22px;
+            letter-spacing: 1px;
+            color: #757272;
+          }
+        }
       }
     }
     button {
@@ -76,4 +89,14 @@ main {
       right: 150px;
     }
   }
+  .searchNotFound {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 300px 200px 100px;
+    color: #ff0202;
+  }
+}
+.active {
+  display: block;
 }

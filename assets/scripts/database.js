@@ -24,7 +24,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
-const usersRef = set(ref(database, "Library"))
+// const usersRef = set(ref(database, "Library"))
 
 let fullName = "ad"
 let email = "mail"
@@ -32,16 +32,16 @@ let userdata = {
   fullName,
   email
 }
-set(ref(database, `Library/users/${fullName}`), userdata)
+// set(ref(database, `Library/users/${fullName}`), userdata)
 
 
 
 const messageRef = ref(database, 'Library')
 
-onValue(messageRef, (snap) => {
-  const data = snap.val()
-  console.log({ data })
-})
+// onValue(messageRef, (snap) => {
+//   const data = snap.val()
+//   console.log({ data })
+// })
 
 // setTimeout(() => {
 //   set(ref(database, 'Library/about/storeImg'), 'https://images.adsttc.com/')
