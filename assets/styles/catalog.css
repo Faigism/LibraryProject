@@ -48,7 +48,7 @@ body {
         display: flex;
         height: Fixed (26px) px;
         gap: 10px;
-        padding-left: 5px;
+        padding-left: 0;
         &::-webkit-scrollbar {
           width: 5px;
           height: 5px;
@@ -66,6 +66,15 @@ body {
           user-select: none;
           width: 100px;
           font-size: 15px;
+          padding: 0px 15px;
+          margin-left: 5px !important;
+        }
+        .clicked-cat{
+          background-color: rgb(199, 197, 197);
+          /* height: 33px; */
+          padding: 0px 15px;
+          border-radius: 5px 5px 0 0;
+          transition: .5s;
         }
       }
     }

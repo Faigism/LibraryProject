@@ -120,7 +120,6 @@ document.querySelector('.all-books').addEventListener("click", () => {
     newReleases.innerHTML = newReleasesItems.join("");
 })
 
-// console.log(dataForFetch);
 
 
 // ---------------------------------------------------------------
@@ -131,50 +130,59 @@ document.querySelector('.all-books').addEventListener("click", () => {
 const ulCategories = document.querySelector('.genres')
 let arrayOfCategories = []
 
-let clickedBefore = false;
 ulCategories.addEventListener("click", (e) => {
-    // console.log(e.target.matches("li.category"));
+    let clickedBefore = false;
+    e.target.classList.add("clicked-cat");
     if (e.target && e.target.matches("li.category")) {
         let element = e.target.textContent;
+        e.target.classList.remove("clicked-cat")
         dataForFetch.map(item => {
             if (item[1].bookType == element) {
                 if (arrayOfCategories.includes(item)) {
                     return item
                 }
                 else{
-                    // arrayOfCategories = []
                     arrayOfCategories.push(item)
+                    for (let a = 0; a < arrayOfCategories.length-1; a++) {
+                        const itm = arrayOfCategories[a];
+                        if (itm[1].bookType != arrayOfCategories[a + 1][1].bookType){
+                            arrayOfCategories.shift()
+                        }
+                    }
+                    // arrayOfCategories = []
+                    console.log(arrayOfCategories);
                 }
             }
         })
+        const arrOfPerCategory = arrayOfCategories.map(item => {
+            return `
+                <li class="items">
+                    <div class="image">
+                        <img
+                            src="${item[1].url}"
+                            alt=""
+                            draggable="false"
+                        />
+                    </div>
+                    <h3>${item[0].substring(0, 16)}</h3>
+                    <h5>${item[1].author.substring(0, 20)}</h5>
+                    <button id = "${item[1].bookId}" class="btn">READ ME</button>
+                </li>`
+        })
+        if (!clickedBefore){
+            carousel.innerHTML = arrOfPerCategory.join("")
+        }
+        clickedBefore = !clickedBefore
     }
-    console.log(arrayOfCategories);
-    const arrOfPerCategory = arrayOfCategories.map(item => {
-        return `
-            <li class="items">
-                <div class="image">
-                    <img
-                        src="${item[1].url}"
-                        alt=""
-                        draggable="false"
-                    />
-                </div>
-                <h3>${item[0].substring(0, 16)}</h3>
-                <h5>${item[1].author.substring(0, 20)}</h5>
-                <button id = "${item[1].bookId}" class="btn">READ ME</button>
-            </li>`
-    })
-    if (!clickedBefore) {
-        carousel.innerHTML = arrOfPerCategory.join("")
-    }
-    clickedBefore = !clickedBefore
 })
 
-// console.log(dataForFetch);
+//          << I need to add function that when click other category remove clicked-cat class of current category >>
 
-
-// console.log(arrayOfCategories);
-
+// window.addEventListener('click', function(event){
+//     if (event.target.matches("li.category")){
+//         event.target.classList.remove("clicked-cat")
+//     }
+// })
 
 
 // ---------------------------------------------------------------
