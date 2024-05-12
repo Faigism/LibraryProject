@@ -35,7 +35,7 @@ const joinUsBody = document.querySelector('.joinUsBody')
 let keyWord
 let bookDataHaveImg
 let bookId
-
+let publishedDate
 
 onValue(ref(database, 'Library/books'), (snap) => {
   writeAllInfo(Object.values(snap.val()))
@@ -82,7 +82,7 @@ modalSelector.addEventListener('click', (e) => {
     const description = bookInfo.description
     const bookType = bookInfo.categories[0]
     bookId = bookDataHaveImg.filter((item) => item.id == booksId)[0].id
-
+    publishedDate = bookInfo.publishedDate
 
     titleSelector.value = title
     authorSelector.value = author
@@ -101,8 +101,16 @@ const typeSelector = document.querySelector('.bookType')
 
 bookAddDatabaseBtn.addEventListener('click', (e) => {
 
+  let day = String(new Date().getDate()).padStart(2, '0');
+  let month = String(new Date().getMonth() + 1).padStart(2, '0');
+  let year = new Date().getFullYear();
+
+  let formattedDate = `${month}.${day}.${year}`;
+
+
   const title = titleSelector.value
   const bookData = {
+    addedTime: formattedDate,
     title: titleSelector.value,
     author: authorSelector.value,
     url: urlSelector.value,
@@ -110,8 +118,10 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     bookType: typeSelector.value,
     newReleases: checkCheckboxStatus("new-releases"),
     bestsellers: checkCheckboxStatus("bestsellers"),
+    publishedDate,
     bookId
   }
+
   set(ref(database, `Library/books/${title}`), bookData)
   titleSelector.value = ''
   authorSelector.value = ''
@@ -151,7 +161,6 @@ storeAboutBtn.addEventListener('click', () => {
   storeDescription.value = ''
 })
 
-writeAllInfo(Object.values(allDataLibrary.books))
 
 function writeAllInfo(allBook) {
   allBooksInformation.innerHTML = allBook
@@ -196,3 +205,5 @@ function contactUs(DataInContact) {
     )
     .join('')
 }
+
+

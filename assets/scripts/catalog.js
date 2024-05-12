@@ -1,7 +1,7 @@
 //        << fetching data from database >>   
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js'
+
 import {
   getDatabase,
   get,
@@ -48,7 +48,7 @@ const allBookCard = dataForFetch.map(i => {
         </div>
         <h3>${i[0].substring(0, 16)}</h3>
         <h5>${i[1].author}</h5>
-        <button class="btn">READ ME</button>
+        <button class="btn carouselBtns">READ ME</button>
     </li>`
 })
 
@@ -68,7 +68,7 @@ const allBestsellerCard = dataForFetch.map (i => {
             </div>
             <h3>${i[0]}</h3>
             <h5>${i[1].author}</h5>
-            <button class="btn">READ ME</button>
+            <button class="btn carouselBtns">READ ME</button>
         </li>`
     }
 })
@@ -125,3 +125,20 @@ setInterval(() => {
 carousel.addEventListener('mousedown', dragStart);
 carousel.addEventListener('mousemove', dragging);
 carousel.addEventListener('mouseup', dragStop);
+
+
+
+
+
+
+// read me buttonlara click eventi
+
+const buttons = document.querySelectorAll('.carouselBtns');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        const bookName = this.id;
+        const bookDetails = Object.entries(allbooks).filter((book) => book[0] === bookName)[0][1];
+        set(ref(database, `Library/detailInfo`), bookDetails);
+    });
+});
