@@ -38,21 +38,38 @@ const newReleases = document.querySelector('.new-items');
 
 
 const allBookCard = dataForFetch.map(i => {
-    return `
-    <li class="items">
-        <div class="image">
-            <img
-                src="${i[1].url}"
-                alt=""
-                draggable="false"
-            />
-        </div>
-        <h3>${i[0].substring(0, 16)}</h3>
-        <h5>${i[1].author}</h5>
-        <button id = "${i[1].bookId}" class="btn">READ ME</button>
-    </li>`
+    if (i[1].newReleases) {
+        return `
+        <li class="items">
+            <div class="image">
+                <img
+                    src="${i[1].url}"
+                    alt=""
+                    draggable="false"
+                />
+            </div>
+            <h3>${i[0].substring(0, 16)}</h3>
+            <h5>${i[1].author.substring(0, 20)}</h5>
+            <button id = "${i[1].bookId}" class="btn">READ ME</button>
+            <div class="new">NEW</div>
+        </li>`
+    }
+    else{
+        return `
+        <li class="items">
+            <div class="image">
+                <img
+                    src="${i[1].url}"
+                    alt=""
+                    draggable="false"
+                />
+            </div>
+            <h3>${i[0].substring(0, 16)}</h3>
+            <h5>${i[1].author.substring(0, 20)}</h5>
+            <button id = "${i[1].bookId}" class="btn">READ ME</button>
+        </li>`
+    }
 })
-
 carousel.innerHTML = allBookCard.join('');
 
 const allBestsellerCard = dataForFetch.map(i => {
@@ -67,7 +84,7 @@ const allBestsellerCard = dataForFetch.map(i => {
                 />
             </div>
             <h3>${i[0].substring(0, 16)}</h3>
-            <h5>${i[1].author}</h5>
+            <h5>${i[1].author.substring(0, 20)}</h5>
             <button id = "${i[1].bookId}" class="btn">READ ME</button>
         </li>`
     }
@@ -92,7 +109,7 @@ const newReleasesItems = arrayOfNew.slice(0, 5).map(e => {
             />
         </div>
         <h3>${e[0].substring(0, 16)}</h3>
-        <h5>${e[1].author}</h5>
+        <h5>${e[1].author.substring(0, 20)}</h5>
         <button id = "${e[1].bookId}" class="btn">READ ME</button>
         <div class="new">NEW</div>
     </li>`
@@ -111,28 +128,6 @@ document.querySelector('.all-books').addEventListener("click", () => {
 
 //         << Category js >>
 
-// const categoryClicking = document.querySelectorAll('.category')
-// for (let index = 0; index < categoryClicking.length; index++) {
-//     const element = categoryClicking[index]
-//     console.log(element);
-// }
-// element.addEventListener('click', () => {
-//     console.log("test");
-// })
-
-// for (let index = 0; index < categoryClicking.length; index++) {
-//     const element = categoryClicking[index].textContent;
-//     dataForFetch.forEach(item => {
-//         // console.log(item[1].bookType);
-//         if (item[1].bookType == element) {
-//             console.log(item);
-//         }
-//     })
-// }
-// console.log(dataForFetch);
-
-
-
 const ulCategories = document.querySelector('.genres')
 let arrayOfCategories = []
 
@@ -143,30 +138,13 @@ ulCategories.addEventListener("click", (e) => {
         let element = e.target.textContent;
         dataForFetch.map(item => {
             if (item[1].bookType == element) {
-                // let pushedArray = arrayOfCategories.push(item)
-                // console.log(pushedArray);
-                // console.log(item);
                 if (arrayOfCategories.includes(item)) {
                     return item
                 }
                 else{
-                    arrayOfCategories = []
+                    // arrayOfCategories = []
                     arrayOfCategories.push(item)
                 }
-                
-                return `
-                    <li class="items">
-                        <div class="image">
-                            <img
-                                src="${item[1].url}"
-                                alt=""
-                                draggable="false"
-                            />
-                        </div>
-                        <h3>${item[0].substring(0, 16)}</h3>
-                        <h5>${item[1].author}</h5>
-                        <button id = "${item[1].bookId}" class="btn">READ ME</button>
-                    </li>`
             }
         })
     }
@@ -182,17 +160,17 @@ ulCategories.addEventListener("click", (e) => {
                     />
                 </div>
                 <h3>${item[0].substring(0, 16)}</h3>
-                <h5>${item[1].author}</h5>
+                <h5>${item[1].author.substring(0, 20)}</h5>
                 <button id = "${item[1].bookId}" class="btn">READ ME</button>
             </li>`
     })
     if (!clickedBefore) {
         carousel.innerHTML = arrOfPerCategory.join("")
     }
-    // clickedBefore = !clickedBefore
+    clickedBefore = !clickedBefore
 })
 
-console.log(dataForFetch);
+// console.log(dataForFetch);
 
 
 // console.log(arrayOfCategories);

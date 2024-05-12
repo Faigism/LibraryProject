@@ -151,6 +151,23 @@ body {
     background: #d67703;
     color: #fff;
   }
+  .new {
+    width: 38px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    opacity: 0px;
+    background-color: red;
+    font-size: 9px;
+    font-weight: 900;
+    line-height: 17.66px;
+    text-align: left;
+    position: absolute;
+    margin-top: -300px;
+    margin-left: -155px;
+    color: white;
+  }
 }
 .carousel.dragging .items {
   cursor: grab;
