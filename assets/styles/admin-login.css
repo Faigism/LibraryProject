@@ -48,6 +48,11 @@ body {
           border: 1px solid #c4bfbf;
           outline: none;
         }
+        .errorMessage {
+          color: red;
+          font-weight: bold;
+          font-size: 16px;
+        }
       }
       .admin-submit {
         button {
