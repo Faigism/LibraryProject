@@ -159,26 +159,15 @@ category.forEach((item) => {
 })
 ulCategories.addEventListener('click', (e) => {
   let clickedBefore = false
-  e.target.classList.add('clicked-cat')
-
   if (e.target && e.target.matches('li.category')) {
     let element = e.target.textContent
-
-    e.target.classList.remove('clicked-cat')
+    arrayOfCategories = []
     dataForFetch.map((item) => {
       if (item[1].bookType == element) {
         if (arrayOfCategories.includes(item)) {
           return item
         } else {
           arrayOfCategories.push(item)
-          for (let a = 0; a < arrayOfCategories.length - 1; a++) {
-            const itm = arrayOfCategories[a]
-            if (itm[1].bookType != arrayOfCategories[a + 1][1].bookType) {
-              arrayOfCategories.shift()
-            }
-          }
-          // arrayOfCategories = []
-          // console.log(arrayOfCategories)
         }
       }
     })
@@ -217,13 +206,6 @@ ulCategories.addEventListener('click', (e) => {
   }
 })
 
-//          << I need to add function that when click other category remove clicked-cat class of current category >>
-
-// window.addEventListener('click', function(event){
-//     if (event.target.matches("li.category")){
-//         event.target.classList.remove("clicked-cat")
-//     }
-// })
 
 // ---------------------------------------------------------------
 
@@ -232,7 +214,7 @@ ulCategories.addEventListener('click', (e) => {
 const arrowBtns = document.querySelectorAll('.slider-wrapper i')
 const firstCardWidth = carousel.querySelector('.items').offsetWidth
 const rightBtn = document.getElementById('right')
-const timePeriod = 3000
+const timePeriod = 900
 
 let isDragging = false,
   startX,
@@ -264,23 +246,19 @@ const dragStop = () => {
 
 setInterval(() => {
   rightBtn.click()
+  console.log(carousel.scrollLeft);
+  if (carousel.scrollLeft >= (carousel.scrollWidth - 1300)) {
+    carousel.scrollLeft = 0;
+    }
 }, timePeriod)
 
 carousel.addEventListener('mousedown', dragStart)
 carousel.addEventListener('mousemove', dragging)
 carousel.addEventListener('mouseup', dragStop)
-rightBtn.click()
-// console.log(carousel.scrollLeft);
-// if (carousel.scrollLeft >= (carousel.scrollWidth - 966)) {
-//     carousel.scrollLeft = 0;
-// }
-// }, timePeriod)
 
 carousel.addEventListener('mousedown', dragStart)
 carousel.addEventListener('mousemove', dragging)
 carousel.addEventListener('mouseup', dragStop)
-
-// read me buttonlara click eventi
 
 const buttons = document.querySelectorAll('.carouselBtns')
 buttons.forEach((button) => {

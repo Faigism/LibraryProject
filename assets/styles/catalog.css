@@ -73,13 +73,6 @@ body {
           padding: 0px 15px;
           margin-left: 5px !important;
         }
-        .clicked-cat {
-          background-color: rgb(199, 197, 197);
-          /* height: 33px; */
-          padding: 0px 15px;
-          border-radius: 5px 5px 0 0;
-          transition: 0.5s;
-        }
       }
     }
     .slider-wrapper {
