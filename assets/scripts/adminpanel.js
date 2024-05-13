@@ -46,7 +46,7 @@ const storeAboutBtn = document.querySelector('.storeAboutBtn')
 const allBooksInformation = document.querySelector('.allBooksInformation')
 const joinUsBody = document.querySelector('.joinUsBody')
 let keyWord
-let bookDataHaveImg
+let bookDataAllHaveInfo
 let bookId
 let publishedDate
 
@@ -72,10 +72,14 @@ const getData = async function (keyWord) {
       `https://www.googleapis.com/books/v1/volumes?q=${keyWord}`
     )
     const resultData = await dataFetch.json()
-    bookDataHaveImg = resultData.items.filter(
-      (book) => book.volumeInfo.readingModes.image != false
-    )
-    openModal(bookDataHaveImg)
+
+
+    bookDataAllHaveInfo = resultData.items.filter(
+      
+      (book) => book.volumeInfo.readingModes.image != false && book.id && book.volumeInfo.publishedDate && book.volumeInfo.categories != undefined && book.volumeInfo.authors != undefined && book.volumeInfo.title != undefined)
+
+      openModal(bookDataAllHaveInfo)
+
   } catch (error) {
     console.log(error)
   }
@@ -86,7 +90,7 @@ modalSelector.addEventListener('click', (e) => {
 
     modalSelector.setAttribute('style', 'display: none;')
 
-    const bookInfo = bookDataHaveImg.filter((item) => item.id == booksId)[0]
+    const bookInfo = bookDataAllHaveInfo.filter((item) => item.id == booksId)[0]
       .volumeInfo
 
     const title = bookInfo.title
@@ -94,7 +98,7 @@ modalSelector.addEventListener('click', (e) => {
     const url = bookInfo.imageLinks.smallThumbnail
     const description = bookInfo.description
     const bookType = bookInfo.categories[0]
-    bookId = bookDataHaveImg.filter((item) => item.id == booksId)[0].id
+    bookId = bookDataAllHaveInfo.filter((item) => item.id == booksId)[0].id
     publishedDate = bookInfo.publishedDate
 
     titleSelector.value = title
