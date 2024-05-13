@@ -35,6 +35,7 @@ const carousel = document.querySelector('.carousel')
 const bestseller = document.querySelector('.bestseller-items')
 const newReleases = document.querySelector('.new-items')
 const allBtn = document.querySelector('.allBtn')
+const category = document.querySelectorAll('.category')
 
 const allBookCard = dataForFetch.map((i) => {
   if (i[1].newReleases) {
@@ -129,6 +130,9 @@ document.querySelector('.all-books').addEventListener('click', () => {
 //         << Category js >>
 
 allBtn.addEventListener('click', () => {
+  category.forEach((item) => {
+    item.style.color = ''
+  })
   carousel.innerHTML = allBookCard.join('')
   const buttons = document.querySelectorAll('.carouselBtns')
   buttons.forEach((button) => {
@@ -145,12 +149,21 @@ allBtn.addEventListener('click', () => {
 
 const ulCategories = document.querySelector('.genres')
 let arrayOfCategories = []
-
+category.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    category.forEach((categoryItem) => {
+      categoryItem.style.color = ''
+    })
+    e.target.style.color = '#ff8400'
+  })
+})
 ulCategories.addEventListener('click', (e) => {
   let clickedBefore = false
   e.target.classList.add('clicked-cat')
+
   if (e.target && e.target.matches('li.category')) {
     let element = e.target.textContent
+
     e.target.classList.remove('clicked-cat')
     dataForFetch.map((item) => {
       if (item[1].bookType == element) {

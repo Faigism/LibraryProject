@@ -73,7 +73,7 @@ main {
   }
 
   .catalogsContainer {
-    width: 798px;
+    width: 70vw;
     height: fit-content;
     margin-top: 66px;
     display: flex;
