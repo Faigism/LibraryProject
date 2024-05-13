@@ -131,8 +131,6 @@ bookAddDatabaseBtn.addEventListener('click', (e) => {
     bestsellers: checkCheckboxStatus('bestsellers'),
     publishedDate,
     bookId,
-    newReleases: checkCheckboxStatus('new-releases'),
-    bestsellers: checkCheckboxStatus('bestsellers'),
   }
 
   set(ref(database, `Library/books/${title}`), bookData)
@@ -165,6 +163,13 @@ function openModal(allBooks) {
 }
 
 storeAboutBtn.addEventListener('click', () => {
+  if (
+    storeTitle.value == '' ||
+    storeDescription.value == '' ||
+    storeImgUrl == ''
+  ) {
+    return
+  }
   const storeName = storeTitle.value
   const storeImg = storeImgUrl.value
   const description = storeDescription.value

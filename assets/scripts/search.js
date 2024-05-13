@@ -109,6 +109,10 @@ function searchDataDisplay(books) {
 searchBtnSelector.addEventListener('click', (e) => {
   e.preventDefault()
   searchNotFound.classList.add('d-none')
+  if (searchInputSelector.value.trim() === '') {
+    searchNotFound.classList.remove('d-none')
+    return
+  }
   const data = Object.values(allBookData).filter(
     (book) =>
       book.title
@@ -129,4 +133,5 @@ searchBtnSelector.addEventListener('click', (e) => {
   }
 
   searchDataDisplay(data)
+  searchInputSelector.value = ''
 })

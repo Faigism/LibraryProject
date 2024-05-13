@@ -164,6 +164,7 @@ ulCategories.addEventListener('click', (e) => {
     arrayOfCategories = []
     dataForFetch.map((item) => {
       if (item[1].bookType == element) {
+        console.log(element)
         if (arrayOfCategories.includes(item)) {
           return item
         } else {
