@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 
 const sendButton = document.querySelector('.btn1')
-const emailInputSelector = document.querySelector(".email")
+const emailInputSelector = document.querySelector('.email')
 
 const fullName = document.querySelector('.fullName')
 const emailAddress = document.querySelector('.email')
@@ -28,21 +28,16 @@ const address = document.querySelector('.address')
 const phoneNumber = document.querySelector('.phone')
 const note = document.querySelector('.note')
 
-
 sendButton.addEventListener('click', function () {
   const name = fullName.value
-  if (checkInputs(document.querySelectorAll(".checkinput"))) {
-
+  if (checkInputs(document.querySelectorAll('.checkinput'))) {
     if (!isValidEmail(emailInputSelector.value)) {
-      
-      emailInputSelector.setAttribute("style", "border: 3px solid red;")
+      emailInputSelector.setAttribute('style', 'border: 3px solid red;')
 
       setTimeout(() => {
-        emailInputSelector.removeAttribute("style", "border: 3px solid red;")
-      }, 1000);
-
+        emailInputSelector.removeAttribute('style', 'border: 3px solid red;')
+      }, 1000)
     } else {
-
       let info = {
         address: address.value,
         emailAddress: emailAddress.value,
@@ -50,7 +45,7 @@ sendButton.addEventListener('click', function () {
         phoneNumber: phoneNumber.value,
         note: note.value,
       }
-      
+
       set(ref(database, `Library/contacts/${name}`), info)
       address.value = ''
       emailAddress.value = ''
@@ -61,26 +56,21 @@ sendButton.addEventListener('click', function () {
   }
 })
 
-
-
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
 }
 
-
 function checkInputs(inputs) {
-
   let result = true
 
-  inputs.forEach(item => {
-
+  inputs.forEach((item) => {
     if (!item.value) {
-      item.setAttribute("style", "border: 3px solid red;")
+      item.setAttribute('style', 'border: 1px solid red;')
 
       setTimeout(() => {
-        item.removeAttribute("style", "border: 3px solid red;")
-      }, 1000);
+        item.removeAttribute('style', 'border: 1px solid red;')
+      }, 1000)
 
       result = false
     }

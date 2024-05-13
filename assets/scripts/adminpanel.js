@@ -191,11 +191,11 @@ function writeAllInfo(allBook) {
 function writeJoinUs(DataInUsers) {
   joinUsBody.innerHTML = Object.values(DataInUsers)
     .map(
-      (user, i) =>
+      (user, index) =>
         `<tr>
-        <td>${i + 1}</td>
-        <td>${user.userName}</td>
-        <td>${user.userEmail}</td>
+        <td>${index + 1}</td>
+        <td>${user.fullName}</td>
+        <td>${user.email}</td>
         </tr>`
     )
     .join('')

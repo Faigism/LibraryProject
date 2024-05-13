@@ -193,11 +193,16 @@ body {
 }
 
 .logo_div {
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
   font-family: var(--fontMons);
   width: 12%;
+  .logo_svg {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .logo_title {
@@ -348,6 +353,11 @@ body {
   align-items: center;
   gap: 8px;
   width: 30%;
+  .footer_logo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 .footer_logo_title {
