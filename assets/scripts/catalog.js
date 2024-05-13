@@ -160,13 +160,12 @@ category.forEach((item) => {
 ulCategories.addEventListener('click', (e) => {
   let clickedBefore = false
   e.target.classList.add('clicked-cat')
-
   if (e.target && e.target.matches('li.category')) {
     let element = e.target.textContent
-
     e.target.classList.remove('clicked-cat')
     dataForFetch.map((item) => {
       if (item[1].bookType == element) {
+        console.log(element)
         if (arrayOfCategories.includes(item)) {
           return item
         } else {
@@ -177,8 +176,6 @@ ulCategories.addEventListener('click', (e) => {
               arrayOfCategories.shift()
             }
           }
-          // arrayOfCategories = []
-          // console.log(arrayOfCategories)
         }
       }
     })
